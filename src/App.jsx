@@ -15,13 +15,11 @@ import { DiscoveryCallModal } from './components/DiscoveryCallModal';
 import { LegalModal } from './components/LegalModals';
 import { AmbientAudioPlayer } from './components/AmbientAudioPlayer';
 import { FloatingActionHub } from './components/FloatingActionHub';
-import { VslWelcomeModal } from './components/VslWelcomeModal';
 
 export function App() {
   const [videoModalData, setVideoModalData] = useState(null);
   const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
   const [legalModalType, setLegalModalType] = useState(null);
-  const [isVslModalOpen, setIsVslModalOpen] = useState(true);
 
   const handleOpenVideo = (videoInfo) => {
     setVideoModalData(videoInfo);
@@ -116,13 +114,6 @@ export function App() {
 
         {/* Floating Action Hub (Desktop: Left WhatsApp & Right AI | Mobile: Bottom Dock) */}
         <FloatingActionHub onOpenBooking={handleOpenBooking} />
-
-        {/* VSL Welcome Video Modal on Site Load */}
-        <VslWelcomeModal
-          isOpen={isVslModalOpen}
-          onClose={() => setIsVslModalOpen(false)}
-          onBookCall={handleOpenBooking}
-        />
 
       </div>
     </>
