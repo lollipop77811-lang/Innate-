@@ -41,7 +41,7 @@ export const MobileDrawer = ({ isOpen, onClose, navigationItems, onOpenBooking }
               }}
               className="w-full btn btn-primary py-3.5 text-xs"
             >
-              Apply for a Wealth Breakthrough Call
+              <span>Apply for a Wealth Breakthrough Call</span>
             </button>
             <p className="text-center text-xs text-[#8A766C]">
               The Innate Bliss · Stop Solving. Start Evolving.

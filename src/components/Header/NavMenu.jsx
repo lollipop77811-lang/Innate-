@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 export const NavMenu = ({ navigationItems }) => (
   <nav className="hidden md:flex items-center gap-4 lg:gap-6 xl:gap-7">
@@ -17,11 +18,15 @@ export const NavMenu = ({ navigationItems }) => (
         {({ isActive }) => (
           <>
             {item.name}
-            <span
-              className={`absolute bottom-0.5 left-0 h-[1.5px] bg-[#C78460] transition-all duration-300 ${
-                isActive ? 'w-full' : 'w-0 group-hover:w-full'
-              }`}
-            />
+            {isActive ? (
+              <motion.span
+                layoutId="nav-underline"
+                transition={{ type: 'spring', stiffness: 380, damping: 32 }}
+                className="absolute bottom-0.5 left-0 right-0 h-[1.5px] bg-[#C78460]"
+              />
+            ) : (
+              <span className="absolute bottom-0.5 left-0 right-0 h-[1.5px] bg-[#C78460]/70 origin-left scale-x-0 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-x-100" />
+            )}
           </>
         )}
       </NavLink>

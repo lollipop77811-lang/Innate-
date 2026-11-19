@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { ParallaxImage } from '../motion/ParallaxImage';
 import { TitleReveal } from '../TextReveal';
 import mindsetProblemImg from '../../assets/images/mindset-problem.jpg';
 
@@ -19,23 +19,17 @@ export const ProblemSection = () => {
     <section id="the-problem" className="py-12 sm:py-16 md:py-20 bg-[#F9F6F3] relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-7 lg:gap-12 items-center mb-8 sm:mb-10">
-          <motion.div
-            initial={{ opacity: 0, x: -14 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="lg:col-span-5 order-2 lg:order-1"
-          >
+          <div data-reveal className="lg:col-span-5 order-2 lg:order-1">
             <div className="rounded-2xl sm:rounded-3xl overflow-hidden border border-[#D9CEC7] shadow-serene aspect-[4/3] bg-[#EAE1D6]">
-              <img
+              <ParallaxImage
                 src={mindsetProblemImg}
                 alt="Business owner thinking at his desk"
                 className="block w-full h-full object-cover"
               />
             </div>
-          </motion.div>
+          </div>
           <div className="lg:col-span-7 order-1 lg:order-2">
-            <span className="inline-block text-[11px] uppercase tracking-[0.2em] text-[#866452] font-semibold mb-3">
+            <span data-reveal className="inline-block text-[11px] uppercase tracking-[0.2em] text-[#866452] font-semibold mb-3">
               The Problem
             </span>
             <TitleReveal
@@ -45,7 +39,7 @@ export const ProblemSection = () => {
               highlight="struggle?"
               highlightClass="italic font-display text-[#C78460] font-normal"
             />
-            <div className="space-y-2.5 text-sm sm:text-[15px] text-[#6B584E] font-light leading-relaxed">
+            <div data-reveal data-reveal-delay="0.08" className="space-y-2.5 text-sm sm:text-[15px] text-[#6B584E] font-light leading-relaxed">
               <p>You have invested your time, money and energy into building your business.</p>
               <p>You have tried new strategies, invested in marketing, built a team and explored different opportunities.</p>
               <p className="font-serif text-xl text-[#2D201A] font-medium pt-1">
@@ -58,7 +52,7 @@ export const ProblemSection = () => {
           <h3 className="text-xl sm:text-2xl font-serif text-[#2D201A] font-medium mb-5">
             Does any of this sound familiar?
           </h3>
-          <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-3.5 mb-7">
+          <ul data-stagger className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-3.5 mb-7">
             {PROBLEM_POINTS.map((point, idx) => (
               <li
                 key={idx}

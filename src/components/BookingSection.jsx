@@ -7,7 +7,7 @@ export const BookingSection = ({ onOpenBookingModal }) => {
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 relative z-10">
         <div className="max-w-4xl mx-auto rounded-3xl sm:rounded-[2.5rem] bg-[#191412] border border-[#3A2E28] p-7 sm:p-12 md:p-14 text-center relative overflow-hidden shadow-velvet">
           <div className="relative z-10 flex flex-col items-center">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/10 text-[#D4A373] text-[10px] sm:text-xs uppercase tracking-[0.16em] mb-4 sm:mb-6">
+            <div data-reveal className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/10 text-[#D4A373] text-[10px] sm:text-xs uppercase tracking-[0.16em] mb-4 sm:mb-6">
               <span>Stop Solving. Start Evolving.</span>
             </div>
             <TitleReveal
@@ -30,7 +30,7 @@ export const BookingSection = ({ onOpenBookingModal }) => {
                 </p>
               </div>
             </LineReveal>
-            <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
+            <div data-reveal data-reveal-delay="0.08" className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
               <button
                 type="button"
                 onClick={onOpenBookingModal}

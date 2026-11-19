@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { ParallaxImage } from '../motion/ParallaxImage';
 import { CheckCircle2 } from 'lucide-react';
 import { TitleReveal } from '../TextReveal';
 import quantumWealthImg from '../../assets/images/quantum-wealth-matrix.jpg';
@@ -43,7 +43,7 @@ export const QuantumWealthSection = ({ onOpenBooking }) => {
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center mb-12">
           <div className="lg:col-span-7">
-            <span className="inline-block text-[11px] uppercase tracking-[0.2em] text-[#866452] font-semibold mb-3">
+            <span data-reveal className="inline-block text-[11px] uppercase tracking-[0.2em] text-[#866452] font-semibold mb-3">
               Signature Program
             </span>
             <TitleReveal
@@ -53,10 +53,10 @@ export const QuantumWealthSection = ({ onOpenBooking }) => {
               highlight="Quantum Wealth Matrix"
               highlightClass="italic font-display text-[#C78460] font-normal"
             />
-            <p className="text-base sm:text-lg font-serif text-[#866452] font-medium mb-4">
+            <p data-reveal data-reveal-delay="0.08" className="text-base sm:text-lg font-serif text-[#866452] font-medium mb-4">
               A 9-Week Money Mindset Transformation Journey for Business Owners, Founders and Entrepreneurs.
             </p>
-            <div className="space-y-3 text-sm sm:text-[15px] text-[#6B584E] font-light leading-relaxed mb-4">
+            <div data-reveal data-reveal-delay="0.16" className="space-y-3 text-sm sm:text-[15px] text-[#6B584E] font-light leading-relaxed mb-4">
               <p>
                 You have worked hard to build your business. Now it&apos;s time to work on the mindset that supports your next level of growth.
               </p>
@@ -64,7 +64,7 @@ export const QuantumWealthSection = ({ onOpenBooking }) => {
                 The Quantum Wealth Matrix Method is a structured, high-accountability transformation program designed to help you identify money-related subconscious patterns, work through limiting beliefs and develop healthier, more empowering ways of thinking and responding to money.
               </p>
             </div>
-            <div className="border-l-2 border-[#866452] pl-4 space-y-1 text-sm text-[#43342D]">
+            <div data-reveal data-reveal-delay="0.24" className="border-l-2 border-[#866452] pl-4 space-y-1 text-sm text-[#43342D]">
               <p className="font-medium text-[#2D201A]">
                 This is not another business strategy course.
               </p>
@@ -73,31 +73,25 @@ export const QuantumWealthSection = ({ onOpenBooking }) => {
               </p>
             </div>
           </div>
-          <motion.div
-            initial={{ opacity: 0, scale: 0.98 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="lg:col-span-5"
-          >
+          <div data-reveal className="lg:col-span-5">
             <div className="rounded-3xl overflow-hidden border border-[#D9CEC7] shadow-serene aspect-[4/3] bg-[#EAE1D6]">
-              <img
+              <ParallaxImage
                 src={quantumWealthImg}
                 alt="Group coaching session"
                 className="block w-full h-full object-cover"
               />
             </div>
-          </motion.div>
+          </div>
         </div>
         <div className="mb-10">
           <h3 className="text-xl sm:text-2xl font-serif text-[#2D201A] font-medium mb-5">
             Your Three Phases of Transformation
           </h3>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+          <div data-stagger className="grid grid-cols-1 md:grid-cols-3 gap-5">
             {TRANSFORMATION_PHASES.map((phase) => (
               <article
                 key={phase.number}
-                className="p-6 rounded-2xl bg-white border border-[#D9CEC7]/90 shadow-xs"
+                className="p-6 rounded-2xl bg-white border border-[#D9CEC7]/90 shadow-xs transition-[transform,box-shadow,border-color] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1 hover:shadow-serene hover:border-[#C9B3A5]"
               >
                 <span className="text-xs font-mono tracking-widest text-[#C78460] font-semibold">
                   {phase.number}.
@@ -126,7 +120,7 @@ export const QuantumWealthSection = ({ onOpenBooking }) => {
                 <span>Explore the Quantum Wealth Matrix Method</span>
               </button>
             </div>
-            <ul className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+            <ul data-stagger className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-3.5">
               {JOURNEY_HIGHLIGHTS.map((item, idx) => (
                 <li key={idx} className="flex items-start gap-2.5 text-sm text-[#E5DDD7] font-light leading-relaxed">
                   <CheckCircle2 className="w-4 h-4 text-[#D4A373] shrink-0 mt-1" />

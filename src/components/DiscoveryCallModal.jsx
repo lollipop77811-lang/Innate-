@@ -326,7 +326,7 @@ export const DiscoveryCallModal = ({ isOpen, onClose }) => {
                 onClick={handleReset}
                 className="btn btn-primary py-3 px-8 text-xs"
               >
-                Return to Website
+                <span>Return to Website</span>
               </button>
             </div>
           )}

@@ -3,6 +3,10 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    --ease-out-soft: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
   html {
     font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
     color: #2d201a;
@@ -48,8 +52,29 @@
   transform: translateY(-2px);
 }
 
-.btn:active {
-  transform: translateY(1px) scale(0.985);
+/* Label roll: the text slides up and an identical copy (text-shadow) rolls in from below */
+.btn {
+  overflow: hidden;
+}
+
+.btn > span {
+  display: inline-block;
+  transition: transform 0.55s var(--ease-out-soft);
+}
+
+.btn > span + span {
+  transition-delay: 0.04s;
+}
+
+@media (hover: hover) {
+  .btn > span {
+    white-space: nowrap;
+    text-shadow: 0 2.6em currentColor;
+  }
+
+  .btn:hover > span {
+    transform: translateY(-2.6em);
+  }
 }
 
 @media (max-width: 639px) {
@@ -91,8 +116,61 @@
 }
 
 .btn-secondary:hover {
+  color: #866452 !important;
   border-color: #b48a72;
   box-shadow: 0 10px 22px -6px rgba(134, 100, 82, 0.22);
+}
+
+/* Scroll reveal (see src/hooks/useScrollReveal.js) */
+[data-reveal],
+[data-stagger] > * {
+  opacity: 0;
+  transform: translateY(24px);
+  filter: blur(6px);
+  transition: opacity 0.9s var(--ease-out-soft), transform 0.9s var(--ease-out-soft),
+    filter 0.9s var(--ease-out-soft);
+}
+
+[data-reveal] {
+  transition-delay: var(--reveal-delay, 0s);
+}
+
+[data-stagger] > * {
+  transition-delay: calc(var(--reveal-delay, 0s) + var(--i, 0) * 70ms);
+}
+
+[data-reveal].is-revealed,
+[data-stagger].is-revealed > * {
+  opacity: 1;
+  transform: none;
+  filter: none;
+}
+
+/* Floating contact buttons ease in after the page settles */
+@keyframes float-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.float-in {
+  animation: float-in 0.8s var(--ease-out-soft) 1.4s backwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-delay: 0s !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 /* Scrollbar */

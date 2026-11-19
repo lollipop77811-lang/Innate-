@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { ParallaxImage } from '../motion/ParallaxImage';
 import { TitleReveal } from '../TextReveal';
 import platinumLifestyleImg from '../../assets/images/platinum-lifestyle.jpg';
 
@@ -12,7 +12,7 @@ export const MindsetIntroSection = ({ onOpenBooking }) => {
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           <div className="lg:col-span-7">
-            <span className="inline-block text-[11px] uppercase tracking-[0.2em] text-[#866452] font-semibold mb-3">
+            <span data-reveal className="inline-block text-[11px] uppercase tracking-[0.2em] text-[#866452] font-semibold mb-3">
               THE INNATE BLISS · Stop Solving. Start Evolving.
             </span>
             <TitleReveal
@@ -22,10 +22,10 @@ export const MindsetIntroSection = ({ onOpenBooking }) => {
               highlight="Mindset"
               highlightClass="italic font-display text-[#C78460] font-normal"
             />
-            <p className="text-base sm:text-lg font-serif text-[#5A483E] leading-snug mb-4">
+            <p data-reveal data-reveal-delay="0.08" className="text-base sm:text-lg font-serif text-[#5A483E] leading-snug mb-4">
               Transform your relationship with money, break through your financial ceiling and develop the mindset to support your next level of business growth.
             </p>
-            <div className="space-y-3 text-sm sm:text-[15px] text-[#6B584E] font-light leading-relaxed max-w-2xl mb-6">
+            <div data-reveal data-reveal-delay="0.16" className="space-y-3 text-sm sm:text-[15px] text-[#6B584E] font-light leading-relaxed max-w-2xl mb-6">
               <p>
                 At The Innate Bliss, we help business owners, founders and entrepreneurs identify and transform the subconscious money patterns, limiting beliefs and emotional blocks that may be influencing their financial decisions and business growth.
               </p>
@@ -33,7 +33,7 @@ export const MindsetIntroSection = ({ onOpenBooking }) => {
                 Because growing a business isn&apos;t always about doing more. Sometimes, the next breakthrough begins with changing what&apos;s happening within.
               </p>
             </div>
-            <div className="flex flex-col items-stretch sm:items-start gap-2.5">
+            <div data-reveal data-reveal-delay="0.24" className="flex flex-col items-stretch sm:items-start gap-2.5">
               <button
                 type="button"
                 onClick={onOpenBooking}
@@ -46,21 +46,15 @@ export const MindsetIntroSection = ({ onOpenBooking }) => {
               </p>
             </div>
           </div>
-          <motion.div
-            initial={{ opacity: 0, scale: 0.98 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="lg:col-span-5"
-          >
+          <div data-reveal className="lg:col-span-5">
             <div className="rounded-3xl overflow-hidden border border-[#D9CEC7] shadow-serene aspect-[4/3] bg-[#EAE1D6]">
-              <img
+              <ParallaxImage
                 src={platinumLifestyleImg}
                 alt="Workspace with notebook and tea"
                 className="block w-full h-full object-cover"
               />
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

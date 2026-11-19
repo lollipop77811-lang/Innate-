@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { ParallaxImage } from '../components/motion/ParallaxImage';
 import { Heart, Users, Briefcase, Wallet } from 'lucide-react';
 import { TitleReveal } from '../components/TextReveal';
 import { BRAND_INFO } from '../data/siteData';
@@ -22,7 +22,7 @@ export const AboutPage = ({ onOpenBooking }) => {
     <div className="pt-16 sm:pt-20 bg-[#F9F6F3]">
       <section className="py-10 sm:py-16 md:py-20 bg-[#F9F6F3] border-b border-[#D9CEC7]">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 text-center">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#F2ECE5] border border-[#D9CEC7] text-[#6B584E] text-[10px] sm:text-xs uppercase tracking-[0.16em] mb-4 shadow-xs">
+          <div data-reveal className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#F2ECE5] border border-[#D9CEC7] text-[#6B584E] text-[10px] sm:text-xs uppercase tracking-[0.16em] mb-4 shadow-xs">
             <span>Founder, The Innate Bliss | Wealth Mindset Coach</span>
           </div>
           <TitleReveal
@@ -32,7 +32,7 @@ export const AboutPage = ({ onOpenBooking }) => {
             highlight="Mindset Coaching"
             highlightClass="italic font-display text-[#C78460] font-normal"
           />
-          <p className="text-base sm:text-lg md:text-xl text-[#6B584E] font-light leading-relaxed max-w-2xl mx-auto">
+          <p data-reveal data-reveal-delay="0.08" className="text-base sm:text-lg md:text-xl text-[#6B584E] font-light leading-relaxed max-w-2xl mx-auto">
             A Journey of Discovering What Truly Creates Success.
           </p>
         </div>
@@ -40,13 +40,7 @@ export const AboutPage = ({ onOpenBooking }) => {
       <section className="py-16 sm:py-20 bg-[#F2ECE5]">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -16 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="lg:col-span-5 relative"
-            >
+            <div data-reveal className="lg:col-span-5 relative">
               <div className="rounded-[2.2rem] bg-white border border-[#D9CEC7] overflow-hidden shadow-premium max-w-md mx-auto">
                 <div className="aspect-[4/5] relative bg-[#F2ECE5]">
                   <img
@@ -69,7 +63,7 @@ export const AboutPage = ({ onOpenBooking }) => {
                   </div>
                 </div>
               </div>
-            </motion.div>
+            </div>
             <div className="lg:col-span-7">
               <span className="text-xs uppercase tracking-[0.18em] text-[#C78460] font-semibold mb-2 block">
                 About the Founder
@@ -112,7 +106,7 @@ export const AboutPage = ({ onOpenBooking }) => {
                 highlight="Changed Everything."
                 highlightClass="italic font-display text-[#C78460] font-normal"
               />
-              <div className="space-y-3.5 text-sm sm:text-base text-[#6B584E] font-light leading-relaxed mb-6">
+              <div data-reveal data-reveal-delay="0.08" className="space-y-3.5 text-sm sm:text-base text-[#6B584E] font-light leading-relaxed mb-6">
                 <p>
                   For the longest time, I was trying to fix everything on the outside – my strategies, pricing and marketing funnels.
                 </p>
@@ -123,7 +117,7 @@ export const AboutPage = ({ onOpenBooking }) => {
                   Until I realised something that changed the way I looked at wealth and success.
                 </p>
               </div>
-              <blockquote className="p-5 sm:p-6 rounded-2xl bg-[#F2ECE5] border-l-4 border-[#866452]">
+              <blockquote data-reveal data-reveal-delay="0.16" className="p-5 sm:p-6 rounded-2xl bg-[#F2ECE5] border-l-4 border-[#866452]">
                 <p className="text-xl sm:text-2xl font-serif text-[#2D201A] font-semibold leading-snug mb-2">
                   I was trying to change the fruit while ignoring the roots.
                 </p>
@@ -132,42 +126,30 @@ export const AboutPage = ({ onOpenBooking }) => {
                 </p>
               </blockquote>
             </div>
-            <motion.div
-              initial={{ opacity: 0, x: 16 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="lg:col-span-5"
-            >
+            <div data-reveal className="lg:col-span-5">
               <div className="rounded-3xl sm:rounded-[2rem] overflow-hidden border border-[#D9CEC7] shadow-premium aspect-[4/3] bg-[#EAE1D6]">
-                <img
+                <ParallaxImage
                   src={mindsetReframeImg}
                   alt="Tree roots"
-                  className="block w-full h-full object-cover hover:scale-[1.03] transition-transform duration-700"
+                  className="block w-full h-full object-cover"
                 />
               </div>
-            </motion.div>
+            </div>
           </div>
         </div>
       </section>
       <section className="py-12 sm:py-16 md:py-20 bg-[#F2ECE5]">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.97 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="lg:col-span-5 order-2 lg:order-1"
-            >
+            <div data-reveal className="lg:col-span-5 order-2 lg:order-1">
               <div className="rounded-3xl sm:rounded-[2rem] overflow-hidden border border-[#D9CEC7] shadow-premium aspect-[4/3] bg-[#EAE1D6]">
-                <img
+                <ParallaxImage
                   src={quantumWealthImg}
                   alt="Coaching session"
-                  className="block w-full h-full object-cover hover:scale-[1.03] transition-transform duration-700"
+                  className="block w-full h-full object-cover"
                 />
               </div>
-            </motion.div>
+            </div>
             <div className="lg:col-span-7 order-1 lg:order-2 space-y-3.5 text-sm sm:text-base text-[#6B584E] font-light leading-relaxed">
               <p>
                 Our external results are influenced by many factors, including our beliefs, subconscious patterns, emotional conditioning and the way we perceive ourselves and money.
@@ -191,19 +173,19 @@ export const AboutPage = ({ onOpenBooking }) => {
       </section>
       <section className="py-14 sm:py-16 md:py-20 bg-[#F9F6F3]">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 mb-10">
+          <div data-stagger className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 mb-10">
             {LIFE_PILLARS.map((pillar) => {
               const Icon = pillar.icon;
               return (
                 <div
                   key={pillar.label}
-                  className="rounded-2xl overflow-hidden border border-[#D9CEC7] bg-white shadow-xs group"
+                  className="rounded-2xl overflow-hidden border border-[#D9CEC7] bg-white shadow-xs group transition-[transform,box-shadow] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1 hover:shadow-serene"
                 >
                   <div className="aspect-[4/3] overflow-hidden bg-[#EAE1D6]">
                     <img
                       src={pillar.img}
                       alt={pillar.label}
-                      className="block w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                      className="block w-full h-full object-cover group-hover:scale-105 transition-transform duration-[1.2s] ease-[cubic-bezier(0.16,1,0.3,1)]"
                     />
                   </div>
                   <div className="p-3.5 flex items-center justify-center gap-2">

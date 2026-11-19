@@ -102,7 +102,7 @@ export const LegalModal = ({ isOpen, onClose, type = 'privacy' }) => {
         </div>
         <div className="pt-4 mt-5 border-t border-white/10 flex justify-end">
           <button type="button" onClick={onClose} className="btn btn-gold !py-2.5 !px-6 text-xs">
-            Close
+            <span>Close</span>
           </button>
         </div>
       </motion.div>

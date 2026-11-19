@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { ParallaxImage } from '../components/motion/ParallaxImage';
 import { Heart, Users, Briefcase, Wallet, CheckCircle2 } from 'lucide-react';
 import { TitleReveal } from '../components/TextReveal';
 
@@ -62,7 +62,7 @@ export const PlatinumPage = ({ onOpenBooking }) => {
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
             <div className="lg:col-span-7">
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-[#D9CEC7] text-[#866452] text-[10px] sm:text-xs uppercase tracking-[0.18em] font-semibold mb-4 shadow-xs">
+              <div data-reveal className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-[#D9CEC7] text-[#866452] text-[10px] sm:text-xs uppercase tracking-[0.18em] font-semibold mb-4 shadow-xs">
                 <span>Platinum Lifetime Membership</span>
               </div>
               <TitleReveal
@@ -72,7 +72,7 @@ export const PlatinumPage = ({ onOpenBooking }) => {
                 highlight="Creating a Better Life."
                 highlightClass="italic font-display text-[#C78460] font-normal"
               />
-              <div className="space-y-3.5 text-sm sm:text-base text-[#6B584E] font-light leading-relaxed mb-6">
+              <div data-reveal data-reveal-delay="0.08" className="space-y-3.5 text-sm sm:text-base text-[#6B584E] font-light leading-relaxed mb-6">
                 <p className="font-serif text-xl sm:text-2xl text-[#2D201A] font-medium">
                   Money matters. But is money alone enough to make you feel successful?
                 </p>
@@ -83,7 +83,7 @@ export const PlatinumPage = ({ onOpenBooking }) => {
                   At The Innate Bliss, we believe a fulfilling life is built around four interconnected pillars:
                 </p>
               </div>
-              <div className="flex flex-wrap items-center gap-2.5">
+              <div data-reveal data-reveal-delay="0.16" className="flex flex-wrap items-center gap-2.5">
                 {[
                   { label: 'HEALTH', href: '#pillar-health' },
                   { label: 'RELATIONSHIPS', href: '#pillar-relationships' },
@@ -100,21 +100,16 @@ export const PlatinumPage = ({ onOpenBooking }) => {
                 ))}
               </div>
             </div>
-            <motion.div
-              initial={{ opacity: 0, scale: 0.97 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.65 }}
-              className="lg:col-span-5"
-            >
+            <div data-reveal className="lg:col-span-5">
               <div className="rounded-3xl sm:rounded-[2rem] overflow-hidden border border-[#D9CEC7] shadow-premium aspect-[4/3] bg-[#EAE1D6]">
-                <img
+                <ParallaxImage
                   src={platinumLifestyleImg}
                   alt="Platinum Lifetime Membership"
                   fetchpriority="high"
                   className="block w-full h-full object-cover"
                 />
               </div>
-            </motion.div>
+            </div>
           </div>
         </div>
       </section>
@@ -140,15 +135,12 @@ export const PlatinumPage = ({ onOpenBooking }) => {
       </section>
       <section className="py-14 sm:py-20 bg-[#F9F6F3]">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 space-y-10">
-          <motion.article
-            id="pillar-health"
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.15 }}
+          <article
+            id="pillar-health" data-reveal
             className="rounded-[2rem] bg-white border border-[#D9CEC7] overflow-hidden shadow-premium grid grid-cols-1 lg:grid-cols-12"
           >
             <div className="lg:col-span-5 relative aspect-[16/10] lg:aspect-auto lg:min-h-[280px] bg-[#EAE1D6]">
-              <img
+              <ParallaxImage
                 src={pillarHealthImg}
                 alt="Health and emotional well-being"
                 className="block w-full h-full object-cover"
@@ -168,7 +160,7 @@ export const PlatinumPage = ({ onOpenBooking }) => {
                   </h2>
                 </div>
               </div>
-              <ul className="space-y-3">
+              <ul data-stagger className="space-y-3">
                 {HEALTH_POINTS.map((item, idx) => (
                   <li key={idx} className="flex items-start gap-2.5 text-sm sm:text-[15px] text-[#43342D] leading-relaxed">
                     <CheckCircle2 className="w-4 h-4 text-[#866452] shrink-0 mt-1" />
@@ -177,16 +169,13 @@ export const PlatinumPage = ({ onOpenBooking }) => {
                 ))}
               </ul>
             </div>
-          </motion.article>
-          <motion.article
-            id="pillar-relationships"
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.15 }}
+          </article>
+          <article
+            id="pillar-relationships" data-reveal
             className="rounded-[2rem] bg-white border border-[#D9CEC7] overflow-hidden shadow-premium grid grid-cols-1 lg:grid-cols-12"
           >
             <div className="lg:col-span-5 relative aspect-[16/10] lg:aspect-auto lg:min-h-[280px] bg-[#EAE1D6] lg:order-2">
-              <img
+              <ParallaxImage
                 src={pillarRelationshipsImg}
                 alt="Personal and professional relationships"
                 className="block w-full h-full object-cover"
@@ -211,7 +200,7 @@ export const PlatinumPage = ({ onOpenBooking }) => {
                   <h3 className="text-lg font-serif text-[#2D201A] font-semibold mb-3">
                     Personal Relationships
                   </h3>
-                  <ul className="space-y-2.5">
+                  <ul data-stagger className="space-y-2.5">
                     {PERSONAL_RELATIONSHIP_POINTS.map((item, idx) => (
                       <li key={idx} className="flex items-start gap-2.5 text-sm text-[#43342D] leading-relaxed">
                         <CheckCircle2 className="w-4 h-4 text-[#866452] shrink-0 mt-1" />
@@ -224,7 +213,7 @@ export const PlatinumPage = ({ onOpenBooking }) => {
                   <h3 className="text-lg font-serif text-[#2D201A] font-semibold mb-3">
                     Professional Relationships
                   </h3>
-                  <ul className="space-y-2.5">
+                  <ul data-stagger className="space-y-2.5">
                     {PROFESSIONAL_RELATIONSHIP_POINTS.map((item, idx) => (
                       <li key={idx} className="flex items-start gap-2.5 text-sm text-[#43342D] leading-relaxed">
                         <CheckCircle2 className="w-4 h-4 text-[#866452] shrink-0 mt-1" />
@@ -235,16 +224,13 @@ export const PlatinumPage = ({ onOpenBooking }) => {
                 </div>
               </div>
             </div>
-          </motion.article>
-          <motion.article
-            id="pillar-career"
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.15 }}
+          </article>
+          <article
+            id="pillar-career" data-reveal
             className="rounded-[2rem] bg-white border border-[#D9CEC7] overflow-hidden shadow-premium grid grid-cols-1 lg:grid-cols-12"
           >
             <div className="lg:col-span-5 relative aspect-[16/10] lg:aspect-auto lg:min-h-[280px] bg-[#EAE1D6]">
-              <img
+              <ParallaxImage
                 src={whoWeWorkWithImg}
                 alt="Career growth"
                 className="block w-full h-full object-cover"
@@ -264,7 +250,7 @@ export const PlatinumPage = ({ onOpenBooking }) => {
                   </h2>
                 </div>
               </div>
-              <ul className="space-y-3">
+              <ul data-stagger className="space-y-3">
                 {CAREER_POINTS.map((item, idx) => (
                   <li key={idx} className="flex items-start gap-2.5 text-sm sm:text-[15px] text-[#43342D] leading-relaxed">
                     <CheckCircle2 className="w-4 h-4 text-[#866452] shrink-0 mt-1" />
@@ -273,16 +259,13 @@ export const PlatinumPage = ({ onOpenBooking }) => {
                 ))}
               </ul>
             </div>
-          </motion.article>
-          <motion.article
-            id="pillar-money"
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.15 }}
+          </article>
+          <article
+            id="pillar-money" data-reveal
             className="rounded-[2rem] bg-white border border-[#D9CEC7] overflow-hidden shadow-premium grid grid-cols-1 lg:grid-cols-12"
           >
             <div className="lg:col-span-5 relative aspect-[16/10] lg:aspect-auto lg:min-h-[280px] bg-[#EAE1D6] lg:order-2">
-              <img
+              <ParallaxImage
                 src={quantumWealthImg}
                 alt="Money and financial growth"
                 className="block w-full h-full object-cover"
@@ -302,7 +285,7 @@ export const PlatinumPage = ({ onOpenBooking }) => {
                   </h2>
                 </div>
               </div>
-              <ul className="space-y-3">
+              <ul data-stagger className="space-y-3">
                 {MONEY_POINTS.map((item, idx) => (
                   <li key={idx} className="flex items-start gap-2.5 text-sm sm:text-[15px] text-[#43342D] leading-relaxed">
                     <CheckCircle2 className="w-4 h-4 text-[#866452] shrink-0 mt-1" />
@@ -311,7 +294,7 @@ export const PlatinumPage = ({ onOpenBooking }) => {
                 ))}
               </ul>
             </div>
-          </motion.article>
+          </article>
         </div>
       </section>
       <section className="py-14 sm:py-20 bg-[#F2ECE5]">

@@ -26,6 +26,16 @@ export default {
         display: ['"Playfair Display"', '"Cormorant Garamond"', 'Georgia', 'serif'],
         sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
       },
+      keyframes: {
+        drift: {
+          '0%, 100%': { transform: 'translate3d(0, 0, 0) scale(1)' },
+          '50%': { transform: 'translate3d(-24px, 18px, 0) scale(1.06)' },
+        },
+      },
+      animation: {
+        drift: 'drift 14s ease-in-out infinite',
+        'drift-slow': 'drift 20s ease-in-out infinite reverse',
+      },
       boxShadow: {
         serene: '0 10px 30px rgba(45, 32, 26, 0.04)',
         premium: '0 20px 45px rgba(45, 32, 26, 0.07)',

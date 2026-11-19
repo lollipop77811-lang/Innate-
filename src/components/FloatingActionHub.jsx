@@ -166,7 +166,7 @@ export const FloatingActionHub = ({ onOpenBooking }) => {
                       }}
                       className="mt-2 btn btn-primary !py-2 !px-4 !text-[10.5px]"
                     >
-                      Book a Wealth Breakthrough Call
+                      <span>Book a Wealth Breakthrough Call</span>
                     </button>
                   )}
                 </div>
@@ -213,7 +213,7 @@ export const FloatingActionHub = ({ onOpenBooking }) => {
         rel="noopener noreferrer"
         aria-label="Chat on WhatsApp"
         title="Chat on WhatsApp"
-        className="hidden md:flex group fixed bottom-6 left-6 z-40 w-[52px] h-[52px] rounded-full bg-gradient-to-b from-[#2EE372] to-[#1FA855] text-white border border-white/30 shadow-[0_10px_26px_rgba(37,211,102,0.4)] items-center justify-center transition-transform hover:scale-105 active:scale-95"
+        className="float-in hidden md:flex group fixed bottom-6 left-6 z-40 w-[52px] h-[52px] rounded-full bg-gradient-to-b from-[#2EE372] to-[#1FA855] text-white border border-white/30 shadow-[0_10px_26px_rgba(37,211,102,0.4)] items-center justify-center transition-transform hover:scale-105 active:scale-95"
       >
         <WhatsAppIcon className="w-6 h-6" />
         <span className="pointer-events-none absolute left-full ml-3 px-3 py-1.5 rounded-full bg-[#191412] text-white text-[11px] font-medium whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity shadow-md">
@@ -225,11 +225,14 @@ export const FloatingActionHub = ({ onOpenBooking }) => {
         onClick={() => setIsChatOpen((prev) => !prev)}
         aria-label={isChatOpen ? 'Close quick answers' : 'Open quick answers'}
         title="Quick answers"
-        className="hidden md:flex group fixed bottom-6 right-6 z-40 w-[52px] h-[52px] rounded-full bg-gradient-to-b from-[#9C7863] via-[#866452] to-[#6E5040] text-white border border-white/30 shadow-[0_10px_26px_rgba(134,100,82,0.5)] items-center justify-center transition-transform hover:scale-105 active:scale-95 cursor-pointer"
+        className="float-in hidden md:flex group fixed bottom-6 right-6 z-40 w-[52px] h-[52px] rounded-full bg-gradient-to-b from-[#9C7863] via-[#866452] to-[#6E5040] text-white border border-white/30 shadow-[0_10px_26px_rgba(134,100,82,0.5)] items-center justify-center transition-transform hover:scale-105 active:scale-95 cursor-pointer"
       >
         {isChatOpen ? <X className="w-5 h-5" /> : <MessageCircle className="w-6 h-6" />}
         {!isChatOpen && (
-          <span className="absolute -top-0.5 -right-0.5 w-3 h-3 rounded-full bg-[#D4A373] border-2 border-[#F9F6F3]" />
+          <span className="absolute -top-0.5 -right-0.5 w-3 h-3">
+            <span className="absolute inset-0 rounded-full bg-[#D4A373] opacity-60 animate-ping [animation-duration:2.4s]" />
+            <span className="relative block w-3 h-3 rounded-full bg-[#D4A373] border-2 border-[#F9F6F3]" />
+          </span>
         )}
         <span className="pointer-events-none absolute right-full mr-3 px-3 py-1.5 rounded-full bg-[#191412] text-white text-[11px] font-medium whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity shadow-md">
           Quick Answers
@@ -237,7 +240,7 @@ export const FloatingActionHub = ({ onOpenBooking }) => {
       </button>
       <nav
         aria-label="Quick contact actions"
-        className="md:hidden fixed bottom-3 inset-x-4 z-40 max-w-md mx-auto rounded-full bg-white/95 backdrop-blur-xl border border-[#D9CEC7] shadow-[0_10px_30px_rgba(45,32,26,0.18)] px-2 py-1.5 grid grid-cols-4 gap-1"
+        className="float-in md:hidden fixed bottom-3 inset-x-4 z-40 max-w-md mx-auto rounded-full bg-white/95 backdrop-blur-xl border border-[#D9CEC7] shadow-[0_10px_30px_rgba(45,32,26,0.18)] px-2 py-1.5 grid grid-cols-4 gap-1"
       >
         <a
           href={phoneHref}
