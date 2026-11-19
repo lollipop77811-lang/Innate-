@@ -8,14 +8,12 @@ import { HomePage } from './pages/HomePage';
 import { AboutPage } from './pages/AboutPage';
 import { PlatinumPage } from './pages/PlatinumPage';
 import { DiscoveryCallModal } from './components/DiscoveryCallModal';
-import { LegalModal } from './components/LegalModals';
 import { FloatingActionHub } from './components/FloatingActionHub';
 import { EASE } from './components/TextReveal';
 import { useScrollReveal } from './hooks/useScrollReveal';
 
 export function App() {
   const [isBookingOpen, setIsBookingOpen] = useState(false);
-  const [legalModalType, setLegalModalType] = useState(null);
 
   const location = useLocation();
   useScrollReveal();
@@ -41,17 +39,8 @@ export function App() {
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </motion.main>
-        <Footer
-          onOpenPrivacy={() => setLegalModalType('privacy')}
-          onOpenTerms={() => setLegalModalType('terms')}
-          onOpenBooking={openBooking}
-        />
+        <Footer onOpenBooking={openBooking} />
         <DiscoveryCallModal isOpen={isBookingOpen} onClose={() => setIsBookingOpen(false)} />
-        <LegalModal
-          isOpen={!!legalModalType}
-          type={legalModalType}
-          onClose={() => setLegalModalType(null)}
-        />
         <FloatingActionHub onOpenBooking={openBooking} />
       </div>
     </MotionConfig>

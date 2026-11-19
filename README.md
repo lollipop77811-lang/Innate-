@@ -27,7 +27,7 @@ public/
   images/             logo and photos of Payal (served as-is)
   videos/             hero video, add VSL 01_2.mp4 here (see below)
 src/
-  App.jsx             routes, booking modal, legal modal, contact buttons
+  App.jsx             routes, booking modal, contact buttons
   data/siteData.js    brand details, contact info, social links
   pages/              Home, About, Platinum
   components/
@@ -37,7 +37,6 @@ src/
     BookingSection    closing call-to-action
     DiscoveryCallModal booking form
     FloatingActionHub WhatsApp / call / email buttons and quick answers
-    LegalModals       privacy policy and terms
     TextReveal        fade-up heading animation
 ```
 

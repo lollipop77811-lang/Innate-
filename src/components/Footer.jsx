@@ -23,7 +23,7 @@ const LinkedInIcon = ({ className = 'w-4 h-4' }) => (
   </svg>
 );
 
-export const Footer = ({ onOpenPrivacy, onOpenTerms, onOpenBooking }) => {
+export const Footer = ({ onOpenBooking }) => {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -144,25 +144,11 @@ export const Footer = ({ onOpenPrivacy, onOpenTerms, onOpenBooking }) => {
             </div>
           </div>
         </div>
-        <div className="pt-5 sm:pt-7 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2.5 sm:gap-4 text-[11px] sm:text-xs text-[#8A766C] pr-12 sm:pr-0">
+        <div className="pt-5 sm:pt-7 flex flex-row items-center justify-between gap-4 text-[11px] sm:text-xs text-[#8A766C] md:pr-16">
           <div>
             © {new Date().getFullYear()} The Innate Bliss. All Rights Reserved.
           </div>
-          <div className="flex items-center gap-4 sm:gap-6">
-            <button
-              type="button"
-              onClick={onOpenPrivacy}
-              className="hover:text-white transition-colors"
-            >
-              Privacy Policy
-            </button>
-            <button
-              type="button"
-              onClick={onOpenTerms}
-              className="hover:text-white transition-colors"
-            >
-              Terms of Service
-            </button>
+          <div className="flex items-center shrink-0">
             <button
               type="button"
               onClick={scrollToTop}
