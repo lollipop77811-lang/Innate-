@@ -19,8 +19,8 @@ export const ProblemSection = () => {
   return (
     <section id="the-problem" className="py-12 sm:py-16 md:py-20 bg-[#F9F6F3] relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-7 lg:gap-14 items-center mb-12 sm:mb-16">
-          <div data-reveal className="lg:col-span-6 order-2 lg:order-1">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-7 lg:gap-14 items-center mb-12 sm:mb-16">
+          <div data-reveal className="md:col-span-6 order-2 md:order-1">
             <ImageFrame
               src={mindsetProblemImg}
               alt="Business owner thinking at his desk"
@@ -33,7 +33,7 @@ export const ProblemSection = () => {
               }
             />
           </div>
-          <div className="lg:col-span-6 order-1 lg:order-2">
+          <div className="md:col-span-6 order-1 md:order-2">
             <span data-reveal className="inline-block text-[11px] uppercase tracking-[0.2em] text-[#866452] font-semibold mb-3">
               The Problem
             </span>
@@ -58,7 +58,7 @@ export const ProblemSection = () => {
         <h3 data-reveal className="text-center text-xl sm:text-2xl md:text-3xl font-serif text-[#2D201A] font-medium mb-6 sm:mb-8">
           Does any of this sound familiar?
         </h3>
-        <div data-stagger className="grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-4 mb-10 sm:mb-14">
+        <div data-stagger className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-4 mb-10 sm:mb-14">
           {PROBLEM_POINTS.map(({ icon, text }) => (
             <IconTile key={text} icon={icon}>
               {text}

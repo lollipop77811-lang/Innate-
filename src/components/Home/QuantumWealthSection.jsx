@@ -51,8 +51,8 @@ export const QuantumWealthSection = ({ onOpenBooking }) => {
       className="py-14 sm:py-16 md:py-20 bg-[#F9F6F3] relative overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center mb-14 sm:mb-16">
-          <div className="lg:col-span-6">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-14 items-center mb-14 sm:mb-16">
+          <div className="md:col-span-6">
             <span data-reveal className="inline-block text-[11px] uppercase tracking-[0.2em] text-[#866452] font-semibold mb-3">
               Signature Program
             </span>
@@ -75,11 +75,11 @@ export const QuantumWealthSection = ({ onOpenBooking }) => {
               </p>
             </div>
           </div>
-          <div data-reveal className="lg:col-span-6">
+          <div data-reveal className="md:col-span-6">
             <ImageFrame
               src={quantumWealthImg}
               alt="Group coaching session"
-              aspect="aspect-[4/3] lg:aspect-[5/4]"
+              aspect="aspect-[4/3] md:aspect-[4/5] lg:aspect-[5/4]"
               overlay={
                 <GlassCard className="border-l-4 !border-l-[#866452]">
                   <p className="font-serif text-base sm:text-lg font-medium text-[#2D201A] mb-1">
@@ -97,13 +97,13 @@ export const QuantumWealthSection = ({ onOpenBooking }) => {
         <h3 data-reveal className="text-center text-xl sm:text-2xl md:text-3xl font-serif text-[#2D201A] font-medium mb-6 sm:mb-8">
           Your Three Phases of Transformation
         </h3>
-        <div data-stagger className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-12 sm:mb-14">
+        <div data-stagger className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-5 mb-12 sm:mb-14">
           {TRANSFORMATION_PHASES.map((phase) => (
             <article
               key={phase.number}
-              className="group rounded-3xl bg-white border border-[#D9CEC7]/90 shadow-xs overflow-hidden transition-[transform,box-shadow] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1.5 hover:shadow-serene"
+              className="group sm:flex lg:block rounded-3xl bg-white border border-[#D9CEC7]/90 shadow-xs overflow-hidden transition-[transform,box-shadow] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1.5 hover:shadow-serene"
             >
-              <div className="relative aspect-[16/11] overflow-hidden bg-[#EAE1D6]">
+              <div className="relative aspect-[16/11] sm:aspect-auto sm:w-[42%] sm:shrink-0 sm:min-h-[210px] lg:w-auto lg:aspect-[16/11] lg:min-h-0 overflow-hidden bg-[#EAE1D6]">
                 <ParallaxImage src={phase.img} alt={phase.alt} className="block w-full h-full object-cover" strength={4} />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#140F0D]/60 via-transparent to-transparent" />
                 <span className="absolute top-4 left-4 w-11 h-11 rounded-full bg-white/90 backdrop-blur-md flex items-center justify-center text-sm font-mono font-semibold text-[#C78460] shadow-md">
@@ -113,7 +113,7 @@ export const QuantumWealthSection = ({ onOpenBooking }) => {
                   {phase.title}
                 </h4>
               </div>
-              <p className="p-5 sm:p-6 text-sm text-[#6B584E] font-light leading-relaxed">
+              <p className="p-5 sm:p-6 sm:self-center lg:self-auto text-sm text-[#6B584E] font-light leading-relaxed">
                 {phase.description}
               </p>
             </article>
@@ -133,14 +133,14 @@ export const QuantumWealthSection = ({ onOpenBooking }) => {
               <span>Explore the Quantum Wealth Matrix Method</span>
             </button>
           </div>
-          <ul data-stagger className="grid grid-cols-2 lg:grid-cols-3 gap-2.5 sm:gap-3.5">
+          <ul data-stagger className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5 sm:gap-3.5">
             {JOURNEY_HIGHLIGHTS.map(({ icon, text }) => (
               <li
                 key={text}
-                className="group p-3.5 sm:p-5 rounded-2xl bg-white/[0.04] border border-white/10 transition-colors duration-500 hover:bg-white/[0.08] hover:border-[#D4A373]/40"
+                className="group flex items-center gap-3.5 sm:block p-3.5 sm:p-5 rounded-2xl bg-white/[0.04] border border-white/10 transition-colors duration-500 hover:bg-white/[0.08] hover:border-[#D4A373]/40"
               >
                 <IconBadge icon={icon} tone="dark" />
-                <p className="mt-3 text-[13px] sm:text-sm text-[#E5DDD7] font-light leading-relaxed">{text}</p>
+                <p className="sm:mt-3 text-sm text-[#E5DDD7] font-light leading-relaxed">{text}</p>
               </li>
             ))}
           </ul>

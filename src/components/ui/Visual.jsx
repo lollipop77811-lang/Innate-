@@ -19,10 +19,10 @@ export const IconBadge = ({ icon: Icon, tone = 'light', className = '' }) => (
 // Small card: icon on top, short text below.
 export const IconTile = ({ icon, children, tone = 'light', className = '' }) => (
   <div
-    className={`group h-full p-3.5 sm:p-5 rounded-2xl bg-white border border-[#D9CEC7]/80 shadow-xs transition-[transform,box-shadow,border-color] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1 hover:shadow-serene hover:border-[#C9B3A5] ${className}`}
+    className={`group h-full flex items-start gap-3.5 sm:block p-4 sm:p-5 rounded-2xl bg-white border border-[#D9CEC7]/80 shadow-xs transition-[transform,box-shadow,border-color] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1 hover:shadow-serene hover:border-[#C9B3A5] ${className}`}
   >
     <IconBadge icon={icon} tone={tone} />
-    <p className="mt-3 sm:mt-3.5 text-[13px] sm:text-[15px] text-[#43342D] leading-relaxed">{children}</p>
+    <p className="pt-1 sm:pt-0 sm:mt-3.5 text-sm sm:text-[15px] text-[#43342D] leading-relaxed">{children}</p>
   </div>
 );
 

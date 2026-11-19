@@ -89,8 +89,8 @@ export const AboutPage = ({ onOpenBooking }) => {
 
       <section className="py-16 sm:py-20 bg-[#F2ECE5]">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
-            <div data-reveal className="lg:col-span-5 lg:sticky lg:top-28">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-10 lg:gap-14 items-start">
+            <div data-reveal className="md:col-span-5 md:sticky md:top-28">
               <div className="rounded-[2.2rem] bg-white border border-[#D9CEC7] overflow-hidden shadow-premium max-w-md mx-auto">
                 <div className="aspect-[4/5] relative bg-[#F2ECE5]">
                   <img
@@ -114,7 +114,7 @@ export const AboutPage = ({ onOpenBooking }) => {
                 </div>
               </div>
             </div>
-            <div className="lg:col-span-7">
+            <div className="md:col-span-7">
               <span data-reveal className="text-xs uppercase tracking-[0.18em] text-[#C78460] font-semibold mb-2 block">
                 About the Founder
               </span>
@@ -145,8 +145,8 @@ export const AboutPage = ({ onOpenBooking }) => {
 
       <section className="py-14 sm:py-16 md:py-20 bg-[#F9F6F3]">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center">
-            <div className="lg:col-span-6">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-14 items-center">
+            <div className="md:col-span-6">
               <TitleReveal
                 as="h2"
                 text="My Personal Journey with Money Changed Everything."
@@ -163,11 +163,11 @@ export const AboutPage = ({ onOpenBooking }) => {
                 ))}
               </div>
             </div>
-            <div data-reveal className="lg:col-span-6">
+            <div data-reveal className="md:col-span-6">
               <ImageFrame
                 src={mindsetReframeImg}
                 alt="Tree roots"
-                aspect="aspect-[4/5] sm:aspect-[4/3] lg:aspect-[4/5]"
+                aspect="aspect-[4/5] sm:aspect-[4/3] md:aspect-[4/5]"
                 overlay={
                   <GlassCard className="sm:p-6">
                     <Quote className="w-6 h-6 text-[#C78460] mb-2" strokeWidth={1.6} />
@@ -187,7 +187,7 @@ export const AboutPage = ({ onOpenBooking }) => {
 
       <section className="py-12 sm:py-16 md:py-20 bg-[#F2ECE5]">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
-          <div data-stagger className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5 mb-10 sm:mb-12">
+          <div data-stagger className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-5 mb-10 sm:mb-12">
             {INSIGHTS.map(({ icon, text }, idx) => (
               <div key={text} className="group relative p-6 rounded-3xl bg-white border border-[#D9CEC7]/80 shadow-xs transition-[transform,box-shadow] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1 hover:shadow-serene">
                 <div className="flex items-center justify-between mb-4">
@@ -198,11 +198,11 @@ export const AboutPage = ({ onOpenBooking }) => {
               </div>
             ))}
           </div>
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-            <div data-reveal className="lg:col-span-5 order-2 lg:order-1">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12 items-center">
+            <div data-reveal className="md:col-span-5 order-2 md:order-1">
               <ImageFrame src={quantumWealthImg} alt="Coaching session" />
             </div>
-            <div className="lg:col-span-7 order-1 lg:order-2">
+            <div className="md:col-span-7 order-1 md:order-2">
               <p data-reveal className="text-2xl sm:text-3xl md:text-4xl font-serif text-[#2D201A] font-medium leading-snug mb-5">
                 That personal journey became the foundation of my{' '}
                 <span className="italic text-[#866452]">Quantum Wealth Matrix Method.</span>

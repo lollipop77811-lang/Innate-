@@ -21,7 +21,7 @@ export const WhoWeWorkWithSection = () => {
             <ImageFrame
               src={whoWeWorkWithImg}
               alt="Entrepreneur by the window"
-              aspect="aspect-[4/3] lg:aspect-[4/5]"
+              aspect="aspect-[16/10] lg:aspect-[4/5]"
             />
           </div>
           <div className="lg:col-span-7 order-1 lg:order-2">

@@ -9,7 +9,7 @@ Built with React 18, Vite, Tailwind CSS, Framer Motion and React Router.
 | Route       | Page                                                                 |
 | ----------- | -------------------------------------------------------------------- |
 | `/`         | Home: 1:1 Money Unblock Call, Quantum Wealth Matrix Method, booking |
-| `/about`    | About Payal                                                          |
+| `/about`    | About the Founder                                                    |
 | `/platinum` | Platinum Lifetime Membership                                         |
 
 ## Getting started

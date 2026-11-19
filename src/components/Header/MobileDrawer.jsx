@@ -10,7 +10,7 @@ export const MobileDrawer = ({ isOpen, onClose, navigationItems, onOpenBooking }
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: -8 }}
         transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
-        className="fixed inset-x-0 top-16 sm:top-20 bottom-0 z-50 bg-[#F9F6F3] border-t border-[#D9CEC7] md:hidden overflow-y-auto shadow-2xl"
+        className="fixed inset-x-0 top-16 sm:top-20 bottom-0 z-50 bg-[#F9F6F3] border-t border-[#D9CEC7] lg:hidden overflow-y-auto shadow-2xl"
       >
         <div className="max-w-xl mx-auto w-full px-6 py-8 flex flex-col gap-6">
           <div className="flex flex-col gap-2">

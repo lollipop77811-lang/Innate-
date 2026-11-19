@@ -5,12 +5,11 @@ import { NavLogo } from './NavLogo';
 import { NavMenu } from './NavMenu';
 import { NavCta } from './NavCta';
 import { MobileDrawer } from './MobileDrawer';
-import { ScrollProgress } from '../motion/ScrollProgress';
 import { EASE } from '../TextReveal';
 
 const NAVIGATION_ITEMS = [
   { name: 'Home', path: '/' },
-  { name: 'About Payal', path: '/about' },
+  { name: 'About the Founder', path: '/about' },
   { name: 'Platinum Membership', path: '/platinum' },
 ];
 
@@ -41,25 +40,24 @@ export const Navbar = ({ onOpenBooking }) => {
           <NavLogo />
           <NavMenu navigationItems={NAVIGATION_ITEMS} />
           <NavCta onOpenBooking={onOpenBooking} />
-          <div className="flex items-center gap-2.5 md:hidden">
+          <div className="flex items-center gap-1.5 sm:gap-2.5 shrink-0 lg:hidden">
             <button
               type="button"
               onClick={onOpenBooking}
-              className="sm:hidden btn btn-primary !py-1.5 !px-3.5 !text-[11px]"
+              className="sm:hidden btn btn-primary !py-2.5 !px-3.5 min-[360px]:!px-4 !text-[11px]"
             >
               <span>Book</span>
             </button>
             <button
               type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 rounded-full text-[#2D201A] hover:bg-[#F2ECE5] transition-colors"
+              className="p-2 min-[360px]:p-2.5 rounded-full text-[#2D201A] hover:bg-[#F2ECE5] transition-colors"
               aria-label="Toggle navigation menu"
             >
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
           </div>
         </div>
-        <ScrollProgress />
       </motion.header>
       <MobileDrawer
         isOpen={mobileMenuOpen}

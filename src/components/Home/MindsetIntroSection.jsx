@@ -10,8 +10,8 @@ export const MindsetIntroSection = ({ onOpenBooking }) => {
       className="py-12 sm:py-16 md:py-20 bg-[#F2ECE5] relative overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center">
-          <div className="lg:col-span-6">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-14 items-center">
+          <div className="md:col-span-6">
             <span data-reveal className="inline-block text-[11px] uppercase tracking-[0.2em] text-[#866452] font-semibold mb-3">
               THE INNATE BLISS · Stop Solving. Start Evolving.
             </span>
@@ -41,11 +41,11 @@ export const MindsetIntroSection = ({ onOpenBooking }) => {
               </p>
             </div>
           </div>
-          <div data-reveal className="lg:col-span-6">
+          <div data-reveal className="md:col-span-6">
             <ImageFrame
               src={platinumLifestyleImg}
               alt="Workspace with notebook and tea"
-              aspect="aspect-[4/3] lg:aspect-[5/4]"
+              aspect="aspect-[4/3] md:aspect-[4/5] lg:aspect-[5/4]"
               overlay={
                 <GlassCard className="max-w-md">
                   <p className="font-serif text-base sm:text-lg text-[#2D201A] leading-snug">

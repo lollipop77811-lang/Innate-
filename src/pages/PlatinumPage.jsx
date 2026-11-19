@@ -144,8 +144,8 @@ export const PlatinumPage = ({ onOpenBooking }) => {
       <section className="py-10 sm:py-16 md:py-20 bg-[#F9F6F3] relative overflow-hidden">
         <div className="absolute -top-24 -right-24 w-96 h-96 bg-[#D4A373]/15 rounded-full blur-3xl pointer-events-none animate-drift" />
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
-            <div className="lg:col-span-7">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-10 lg:gap-12 items-center">
+            <div className="md:col-span-7">
               <div data-reveal className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-[#D9CEC7] text-[#866452] text-[10px] sm:text-xs uppercase tracking-[0.18em] font-semibold mb-4 shadow-xs">
                 <span>Platinum Lifetime Membership</span>
               </div>
@@ -184,7 +184,7 @@ export const PlatinumPage = ({ onOpenBooking }) => {
                 ))}
               </div>
             </div>
-            <div data-reveal className="lg:col-span-5">
+            <div data-reveal className="md:col-span-5">
               <ImageFrame
                 src={platinumLifestyleImg}
                 alt="Platinum Lifetime Membership"
@@ -198,8 +198,8 @@ export const PlatinumPage = ({ onOpenBooking }) => {
 
       <section className="py-12 sm:py-16 md:py-20 bg-[#F2ECE5] border-y border-[#D9CEC7]/70">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center">
-            <div data-stagger className="lg:col-span-5 grid grid-cols-2 gap-3 sm:gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-14 items-center">
+            <div data-stagger className="md:col-span-5 grid grid-cols-2 gap-3 sm:gap-4">
               {PILLARS.map((p, idx) => (
                 <button
                   key={p.id}
@@ -209,14 +209,14 @@ export const PlatinumPage = ({ onOpenBooking }) => {
                 >
                   <img src={p.img} alt={p.alt} className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1.2s] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-105" />
                   <span className="absolute inset-0 bg-gradient-to-t from-[#140F0D]/65 via-transparent to-transparent" />
-                  <span className="absolute bottom-3 left-3 flex items-center gap-1.5 text-white text-[11px] font-semibold tracking-[0.16em]">
+                  <span className="absolute bottom-2.5 left-2.5 right-2 sm:bottom-3 sm:left-3 flex items-center gap-1.5 text-white text-[9.5px] sm:text-[11px] font-semibold tracking-[0.08em] sm:tracking-[0.16em]">
                     <p.icon className="w-3.5 h-3.5" />
                     {p.label}
                   </span>
                 </button>
               ))}
             </div>
-            <div className="lg:col-span-7 space-y-4 pt-6 lg:pt-0">
+            <div className="md:col-span-7 space-y-4 pt-6 lg:pt-0">
               <h2 data-reveal className="text-2xl sm:text-3xl md:text-[34px] font-serif text-[#2D201A] font-medium leading-snug">
                 That&apos;s why we created{' '}
                 <span className="italic text-[#866452]">
@@ -252,18 +252,18 @@ export const PlatinumPage = ({ onOpenBooking }) => {
                   aria-selected={selected}
                   aria-controls={`${p.id}-panel`}
                   onClick={() => setActive(p.id)}
-                  className={`relative flex items-center gap-3 p-2.5 pr-4 rounded-2xl border text-left scroll-mt-28 transition-[background-color,border-color,box-shadow,color] duration-500 ${
+                  className={`relative flex items-center gap-2.5 sm:gap-3 p-2.5 pr-3 sm:pr-4 min-h-[60px] rounded-2xl border text-left scroll-mt-28 transition-[background-color,border-color,box-shadow,color] duration-500 ${
                     selected
                       ? 'bg-[#191412] border-[#191412] text-white shadow-velvet'
                       : 'bg-white border-[#D9CEC7] text-[#2D201A] hover:border-[#866452]'
                   }`}
                 >
-                  <img src={p.img} alt="" className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl object-cover shrink-0" />
+                  <img src={p.img} alt="" className="hidden min-[380px]:block w-10 h-10 sm:w-12 sm:h-12 rounded-xl object-cover shrink-0" />
                   <span className="min-w-0">
                     <span className={`block text-[10px] uppercase tracking-[0.16em] font-semibold ${selected ? 'text-[#D4A373]' : 'text-[#C78460]'}`}>
                       Pillar {p.number}
                     </span>
-                    <span className="block font-serif text-[13px] sm:text-base font-medium leading-tight line-clamp-2">{p.title}</span>
+                    <span className="block font-serif text-[13px] sm:text-base font-medium leading-tight line-clamp-2 break-words">{p.title}</span>
                   </span>
                 </button>
               );
@@ -296,7 +296,7 @@ export const PlatinumPage = ({ onOpenBooking }) => {
                 </div>
               </div>
               <div className="lg:col-span-7 p-5 sm:p-8 flex flex-col justify-center">
-                <div className={`grid gap-5 ${pillar.groups.length > 1 ? 'md:grid-cols-2' : ''}`}>
+                <div className={`grid gap-5 ${pillar.groups.length > 1 ? 'md:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2' : ''}`}>
                   {pillar.groups.map((group, gi) => (
                     <div key={gi}>
                       {group.title && (

@@ -104,7 +104,7 @@ export const Footer = ({ onOpenPrivacy, onOpenTerms, onOpenBooking }) => {
                 <Link to="/platinum" className="hover:text-white transition-colors">Platinum</Link>
               </li>
               <li>
-                <Link to="/about" className="hover:text-white transition-colors">About Payal</Link>
+                <Link to="/about" className="hover:text-white transition-colors">About the Founder</Link>
               </li>
               <li>
                 <Link to="/#contact" className="hover:text-white transition-colors">Contact</Link>

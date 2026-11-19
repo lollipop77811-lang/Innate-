@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
 export const NavMenu = ({ navigationItems }) => (
-  <nav className="hidden md:flex items-center gap-4 lg:gap-6 xl:gap-7">
+  <nav className="hidden lg:flex items-center gap-6 xl:gap-8">
     {navigationItems.map((item) => (
       <NavLink
         key={item.name}

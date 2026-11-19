@@ -31,8 +31,8 @@ export const ReframeSection = () => {
   return (
     <section id="the-reframe" className="py-14 sm:py-16 md:py-20 bg-[#F2ECE5] relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-7 lg:gap-12 items-center mb-12 sm:mb-16">
-          <div className="lg:col-span-5">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-7 lg:gap-12 items-center mb-12 sm:mb-16">
+          <div className="md:col-span-5">
             <span data-reveal className="inline-block text-[11px] uppercase tracking-[0.2em] text-[#866452] font-semibold mb-3">
               The Reframe
             </span>
@@ -44,7 +44,7 @@ export const ReframeSection = () => {
               highlightClass="italic font-display text-[#C78460] font-normal"
             />
           </div>
-          <div data-reveal className="lg:col-span-7">
+          <div data-reveal className="md:col-span-7">
             <div className="relative">
               <div className="rounded-3xl overflow-hidden border border-[#D9CEC7] shadow-serene aspect-[4/3] lg:aspect-[16/11] bg-[#EAE1D6]">
                 <ParallaxImage src={mindsetReframeImg} alt="Tree roots" className="block w-full h-full object-cover" />
