@@ -24,6 +24,7 @@ export const ProblemSection = () => {
             <ImageFrame
               src={mindsetProblemImg}
               alt="Business owner thinking at his desk"
+              stackOnMobile={false}
               overlay={
                 <GlassCard className="inline-block">
                   <p className="font-serif text-lg sm:text-xl text-[#2D201A] font-medium">

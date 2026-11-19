@@ -27,24 +27,41 @@ export const IconTile = ({ icon, children, tone = 'light', className = '' }) => 
 );
 
 // Rounded image frame with optional overlay content (quote card, caption).
+// On phones a long overlay would hide the photo, so by default it moves below the image
+// and only floats on top of the picture from the `sm` breakpoint up.
 export const ImageFrame = ({
   src,
   alt,
   aspect = 'aspect-[4/3]',
   className = '',
   overlay = null,
-  overlayClass = 'bottom-4 left-4 right-4 sm:bottom-5 sm:left-5 sm:right-5',
+  overlayClass = 'sm:bottom-5 sm:left-5 sm:right-5',
+  stackOnMobile = true,
   ...imgProps
 }) => (
-  <div
-    className={`relative rounded-3xl overflow-hidden border border-[#D9CEC7] shadow-serene bg-[#EAE1D6] ${aspect} ${className}`}
-  >
-    <ParallaxImage src={src} alt={alt} className="block w-full h-full object-cover" {...imgProps} />
+  <div className="relative">
+    <div
+      className={`relative rounded-3xl overflow-hidden border border-[#D9CEC7] shadow-serene bg-[#EAE1D6] ${aspect} ${className}`}
+    >
+      <ParallaxImage src={src} alt={alt} className="block w-full h-full object-cover" {...imgProps} />
+      {overlay && (
+        <div
+          className={`pointer-events-none absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-[#140F0D]/55 to-transparent ${
+            stackOnMobile ? 'hidden sm:block' : ''
+          }`}
+        />
+      )}
+    </div>
     {overlay && (
-      <>
-        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-[#140F0D]/55 to-transparent" />
-        <div className={`absolute ${overlayClass}`}>{overlay}</div>
-      </>
+      <div
+        className={
+          stackOnMobile
+            ? `relative -mt-6 mx-3 sm:mx-0 sm:mt-0 sm:absolute ${overlayClass}`
+            : `absolute bottom-4 left-4 right-4 ${overlayClass}`
+        }
+      >
+        {overlay}
+      </div>
     )}
   </div>
 );

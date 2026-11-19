@@ -167,7 +167,7 @@ export const AboutPage = ({ onOpenBooking }) => {
               <ImageFrame
                 src={mindsetReframeImg}
                 alt="Tree roots"
-                aspect="aspect-[4/5] sm:aspect-[4/3] md:aspect-[4/5]"
+                aspect="aspect-[4/3] md:aspect-[4/5]"
                 overlay={
                   <GlassCard className="sm:p-6">
                     <Quote className="w-6 h-6 text-[#C78460] mb-2" strokeWidth={1.6} />
