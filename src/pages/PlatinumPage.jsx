@@ -1,7 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Heart, Users, Briefcase, Wallet, CheckCircle2 } from 'lucide-react';
-import { CelestialStar } from '../components/CelestialElements';
 import { TitleReveal } from '../components/TextReveal';
 
 import platinumLifestyleImg from '../assets/images/platinum-lifestyle.jpg';
@@ -58,19 +57,14 @@ const MONEY_POINTS = [
 export const PlatinumPage = ({ onOpenBooking }) => {
   return (
     <div className="bg-[#F9F6F3] pt-16 sm:pt-20">
-      {/* Pictorial Hero Section */}
       <section className="py-10 sm:py-16 md:py-20 bg-[#F9F6F3] relative overflow-hidden">
         <div className="absolute -top-24 -right-24 w-96 h-96 bg-[#D4A373]/15 rounded-full blur-3xl pointer-events-none" />
-
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
-            {/* Left Intro */}
             <div className="lg:col-span-7">
               <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-[#D9CEC7] text-[#866452] text-[10px] sm:text-xs uppercase tracking-[0.18em] font-semibold mb-4 shadow-xs">
-                <CelestialStar className="w-3.5 h-3.5 text-[#C78460]" />
                 <span>Platinum Lifetime Membership</span>
               </div>
-
               <TitleReveal
                 as="h1"
                 text="True Success Is More Than Financial Growth. It's About Creating a Better Life."
@@ -78,7 +72,6 @@ export const PlatinumPage = ({ onOpenBooking }) => {
                 highlight="Creating a Better Life."
                 highlightClass="italic font-display text-[#C78460] font-normal"
               />
-
               <div className="space-y-3.5 text-sm sm:text-base text-[#6B584E] font-light leading-relaxed mb-6">
                 <p className="font-serif text-xl sm:text-2xl text-[#2D201A] font-medium">
                   Money matters. But is money alone enough to make you feel successful?
@@ -90,8 +83,6 @@ export const PlatinumPage = ({ onOpenBooking }) => {
                   At The Innate Bliss, we believe a fulfilling life is built around four interconnected pillars:
                 </p>
               </div>
-
-              {/* Four Pillars Interactive Jump Strip */}
               <div className="flex flex-wrap items-center gap-2.5">
                 {[
                   { label: 'HEALTH', href: '#pillar-health' },
@@ -109,8 +100,6 @@ export const PlatinumPage = ({ onOpenBooking }) => {
                 ))}
               </div>
             </div>
-
-            {/* Right Pictorial Hero Visual */}
             <motion.div
               initial={{ opacity: 0, scale: 0.97 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -120,8 +109,8 @@ export const PlatinumPage = ({ onOpenBooking }) => {
               <div className="rounded-3xl sm:rounded-[2rem] overflow-hidden border border-[#D9CEC7] shadow-premium aspect-[4/3] bg-[#EAE1D6]">
                 <img
                   src={platinumLifestyleImg}
-                  alt="Platinum Lifetime Membership holistic lifestyle"
-                  fetchPriority="high"
+                  alt="Platinum Lifetime Membership"
+                  fetchpriority="high"
                   className="block w-full h-full object-cover"
                 />
               </div>
@@ -129,8 +118,6 @@ export const PlatinumPage = ({ onOpenBooking }) => {
           </div>
         </div>
       </section>
-
-      {/* Platinum Lifestyle Philosophy Band */}
       <section className="py-12 sm:py-16 bg-[#F2ECE5] border-y border-[#D9CEC7]/70">
         <div className="max-w-4xl mx-auto px-6 sm:px-8 text-center space-y-4">
           <h2 className="text-xl sm:text-2xl md:text-3xl font-serif text-[#2D201A] font-medium leading-snug">
@@ -151,22 +138,19 @@ export const PlatinumPage = ({ onOpenBooking }) => {
           </p>
         </div>
       </section>
-
-      {/* Four Pictorial Pillars Showcase */}
       <section className="py-14 sm:py-20 bg-[#F9F6F3]">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 space-y-10">
-          {/* Pillar 1: Health & Emotional Well-being */}
           <motion.article
             id="pillar-health"
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.15 }}
-            className="card-soothing-white rounded-[2rem] bg-white border border-[#D9CEC7] overflow-hidden shadow-premium grid grid-cols-1 lg:grid-cols-12"
+            className="rounded-[2rem] bg-white border border-[#D9CEC7] overflow-hidden shadow-premium grid grid-cols-1 lg:grid-cols-12"
           >
             <div className="lg:col-span-5 relative aspect-[16/10] lg:aspect-auto lg:min-h-[280px] bg-[#EAE1D6]">
               <img
                 src={pillarHealthImg}
-                alt="Health and Emotional Well-being sanctuary"
+                alt="Health and emotional well-being"
                 className="block w-full h-full object-cover"
               />
             </div>
@@ -194,19 +178,17 @@ export const PlatinumPage = ({ onOpenBooking }) => {
               </ul>
             </div>
           </motion.article>
-
-          {/* Pillar 2: Relationships */}
           <motion.article
             id="pillar-relationships"
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.15 }}
-            className="card-soothing-white rounded-[2rem] bg-white border border-[#D9CEC7] overflow-hidden shadow-premium grid grid-cols-1 lg:grid-cols-12"
+            className="rounded-[2rem] bg-white border border-[#D9CEC7] overflow-hidden shadow-premium grid grid-cols-1 lg:grid-cols-12"
           >
             <div className="lg:col-span-5 relative aspect-[16/10] lg:aspect-auto lg:min-h-[280px] bg-[#EAE1D6] lg:order-2">
               <img
                 src={pillarRelationshipsImg}
-                alt="Personal and Professional Relationships harmony"
+                alt="Personal and professional relationships"
                 className="block w-full h-full object-cover"
               />
             </div>
@@ -224,7 +206,6 @@ export const PlatinumPage = ({ onOpenBooking }) => {
                   </h2>
                 </div>
               </div>
-
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                 <div className="p-5 rounded-2xl bg-[#F9F6F3] border border-[#D9CEC7]/80">
                   <h3 className="text-lg font-serif text-[#2D201A] font-semibold mb-3">
@@ -239,7 +220,6 @@ export const PlatinumPage = ({ onOpenBooking }) => {
                     ))}
                   </ul>
                 </div>
-
                 <div className="p-5 rounded-2xl bg-[#F9F6F3] border border-[#D9CEC7]/80">
                   <h3 className="text-lg font-serif text-[#2D201A] font-semibold mb-3">
                     Professional Relationships
@@ -256,19 +236,17 @@ export const PlatinumPage = ({ onOpenBooking }) => {
               </div>
             </div>
           </motion.article>
-
-          {/* Pillar 3: Career */}
           <motion.article
             id="pillar-career"
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.15 }}
-            className="card-soothing-white rounded-[2rem] bg-white border border-[#D9CEC7] overflow-hidden shadow-premium grid grid-cols-1 lg:grid-cols-12"
+            className="rounded-[2rem] bg-white border border-[#D9CEC7] overflow-hidden shadow-premium grid grid-cols-1 lg:grid-cols-12"
           >
             <div className="lg:col-span-5 relative aspect-[16/10] lg:aspect-auto lg:min-h-[280px] bg-[#EAE1D6]">
               <img
                 src={whoWeWorkWithImg}
-                alt="Career Growth and Fulfilment"
+                alt="Career growth"
                 className="block w-full h-full object-cover"
               />
             </div>
@@ -296,19 +274,17 @@ export const PlatinumPage = ({ onOpenBooking }) => {
               </ul>
             </div>
           </motion.article>
-
-          {/* Pillar 4: Money */}
           <motion.article
             id="pillar-money"
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.15 }}
-            className="card-soothing-white rounded-[2rem] bg-white border border-[#D9CEC7] overflow-hidden shadow-premium grid grid-cols-1 lg:grid-cols-12"
+            className="rounded-[2rem] bg-white border border-[#D9CEC7] overflow-hidden shadow-premium grid grid-cols-1 lg:grid-cols-12"
           >
             <div className="lg:col-span-5 relative aspect-[16/10] lg:aspect-auto lg:min-h-[280px] bg-[#EAE1D6] lg:order-2">
               <img
                 src={quantumWealthImg}
-                alt="Money and Financial Growth"
+                alt="Money and financial growth"
                 className="block w-full h-full object-cover"
               />
             </div>
@@ -338,8 +314,6 @@ export const PlatinumPage = ({ onOpenBooking }) => {
           </motion.article>
         </div>
       </section>
-
-      {/* Closing Platinum CTA */}
       <section className="py-14 sm:py-20 bg-[#F2ECE5]">
         <div className="max-w-4xl mx-auto px-6 sm:px-8">
           <div className="rounded-3xl sm:rounded-[2.5rem] bg-[#191412] border border-[#3A2E28] p-8 sm:p-12 text-center shadow-velvet">
@@ -349,7 +323,7 @@ export const PlatinumPage = ({ onOpenBooking }) => {
             <button
               type="button"
               onClick={onOpenBooking}
-              className="calmlyss-btn calmlyss-btn-gold py-3.5 px-7 sm:px-9 text-xs sm:text-sm w-full sm:w-auto"
+              className="btn btn-gold py-3.5 px-7 sm:px-9 text-xs sm:text-sm w-full sm:w-auto"
             >
               <span>Discover Platinum Lifetime Membership</span>
             </button>

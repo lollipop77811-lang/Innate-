@@ -1,7 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Sparkles, Heart, Users, Briefcase, Wallet } from 'lucide-react';
-import { CelestialStar } from '../components/CelestialElements';
+import { Heart, Users, Briefcase, Wallet } from 'lucide-react';
 import { TitleReveal } from '../components/TextReveal';
 import { BRAND_INFO } from '../data/siteData';
 
@@ -21,14 +20,11 @@ const LIFE_PILLARS = [
 export const AboutPage = ({ onOpenBooking }) => {
   return (
     <div className="pt-16 sm:pt-20 bg-[#F9F6F3]">
-      {/* 1. Centered Editorial Page Header (Original Clean Structure) */}
       <section className="py-10 sm:py-16 md:py-20 bg-[#F9F6F3] border-b border-[#D9CEC7]">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 text-center">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#F2ECE5] border border-[#D9CEC7] text-[#6B584E] text-[10px] sm:text-xs uppercase tracking-[0.16em] mb-4 shadow-xs">
-            <CelestialStar className="w-3.5 h-3.5 text-[#C78460]" />
             <span>Founder, The Innate Bliss | Wealth Mindset Coach</span>
           </div>
-
           <TitleReveal
             as="h1"
             text="Meet Payal Gulati: From Media to Mindset Coaching"
@@ -36,18 +32,14 @@ export const AboutPage = ({ onOpenBooking }) => {
             highlight="Mindset Coaching"
             highlightClass="italic font-display text-[#C78460] font-normal"
           />
-
           <p className="text-base sm:text-lg md:text-xl text-[#6B584E] font-light leading-relaxed max-w-2xl mx-auto">
             A Journey of Discovering What Truly Creates Success.
           </p>
         </div>
       </section>
-
-      {/* 2. Founder Portrait + Media-to-Mindset Narrative */}
       <section className="py-16 sm:py-20 bg-[#F2ECE5]">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
-            {/* Left: HD Founder Portrait */}
             <motion.div
               initial={{ opacity: 0, x: -16 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -60,7 +52,7 @@ export const AboutPage = ({ onOpenBooking }) => {
                   <img
                     src={BRAND_INFO.founderPhoto}
                     alt="Payal Gulati - Founder, The Innate Bliss"
-                    fetchPriority="high"
+                    fetchpriority="high"
                     className="block w-full h-full object-cover object-top"
                     onError={(e) => {
                       e.target.src = BRAND_INFO.coachPayal;
@@ -78,8 +70,6 @@ export const AboutPage = ({ onOpenBooking }) => {
                 </div>
               </div>
             </motion.div>
-
-            {/* Right: Media to Mindset Story */}
             <div className="lg:col-span-7">
               <span className="text-xs uppercase tracking-[0.18em] text-[#C78460] font-semibold mb-2 block">
                 About the Founder
@@ -87,7 +77,6 @@ export const AboutPage = ({ onOpenBooking }) => {
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif text-[#2D201A] leading-snug mb-5">
                 From Media to Mindset Coaching – A Journey of Discovering What Truly Creates Success.
               </h2>
-
               <div className="space-y-3.5 text-sm sm:text-base text-[#6B584E] font-light leading-relaxed">
                 <p>
                   For nearly two decades, I worked in the media and corporate world, building my career, taking on responsibilities and working towards professional success.
@@ -112,12 +101,9 @@ export const AboutPage = ({ onOpenBooking }) => {
           </div>
         </div>
       </section>
-
-      {/* Chapter 3: Personal Journey with Money (Fruit vs Roots Pictorial) */}
       <section className="py-14 sm:py-16 md:py-20 bg-[#F9F6F3]">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-            {/* Left Copy */}
             <div className="lg:col-span-7">
               <TitleReveal
                 as="h2"
@@ -126,7 +112,6 @@ export const AboutPage = ({ onOpenBooking }) => {
                 highlight="Changed Everything."
                 highlightClass="italic font-display text-[#C78460] font-normal"
               />
-
               <div className="space-y-3.5 text-sm sm:text-base text-[#6B584E] font-light leading-relaxed mb-6">
                 <p>
                   For the longest time, I was trying to fix everything on the outside – my strategies, pricing and marketing funnels.
@@ -138,7 +123,6 @@ export const AboutPage = ({ onOpenBooking }) => {
                   Until I realised something that changed the way I looked at wealth and success.
                 </p>
               </div>
-
               <blockquote className="p-5 sm:p-6 rounded-2xl bg-[#F2ECE5] border-l-4 border-[#866452]">
                 <p className="text-xl sm:text-2xl font-serif text-[#2D201A] font-semibold leading-snug mb-2">
                   I was trying to change the fruit while ignoring the roots.
@@ -148,8 +132,6 @@ export const AboutPage = ({ onOpenBooking }) => {
                 </p>
               </blockquote>
             </div>
-
-            {/* Right Pictorial Tree & Roots Visual */}
             <motion.div
               initial={{ opacity: 0, x: 16 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -160,7 +142,7 @@ export const AboutPage = ({ onOpenBooking }) => {
               <div className="rounded-3xl sm:rounded-[2rem] overflow-hidden border border-[#D9CEC7] shadow-premium aspect-[4/3] bg-[#EAE1D6]">
                 <img
                   src={mindsetReframeImg}
-                  alt="Deep grounded tree roots illuminated by morning light"
+                  alt="Tree roots"
                   className="block w-full h-full object-cover hover:scale-[1.03] transition-transform duration-700"
                 />
               </div>
@@ -168,12 +150,9 @@ export const AboutPage = ({ onOpenBooking }) => {
           </div>
         </div>
       </section>
-
-      {/* Chapter 4: Birth of the Quantum Wealth Matrix Method */}
       <section className="py-12 sm:py-16 md:py-20 bg-[#F2ECE5]">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-            {/* Left Pictorial Coaching Session (Second on Mobile) */}
             <motion.div
               initial={{ opacity: 0, scale: 0.97 }}
               whileInView={{ opacity: 1, scale: 1 }}
@@ -184,13 +163,11 @@ export const AboutPage = ({ onOpenBooking }) => {
               <div className="rounded-3xl sm:rounded-[2rem] overflow-hidden border border-[#D9CEC7] shadow-premium aspect-[4/3] bg-[#EAE1D6]">
                 <img
                   src={quantumWealthImg}
-                  alt="Quantum Wealth Matrix Method coaching lounge"
+                  alt="Coaching session"
                   className="block w-full h-full object-cover hover:scale-[1.03] transition-transform duration-700"
                 />
               </div>
             </motion.div>
-
-            {/* Right Story (First on Mobile) */}
             <div className="lg:col-span-7 order-1 lg:order-2 space-y-3.5 text-sm sm:text-base text-[#6B584E] font-light leading-relaxed">
               <p>
                 Our external results are influenced by many factors, including our beliefs, subconscious patterns, emotional conditioning and the way we perceive ourselves and money.
@@ -212,11 +189,8 @@ export const AboutPage = ({ onOpenBooking }) => {
           </div>
         </div>
       </section>
-
-      {/* Chapter 5: My Belief & Pictorial 4-Pillar Mosaic + CTA */}
       <section className="py-14 sm:py-16 md:py-20 bg-[#F9F6F3]">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
-          {/* 4 Pictorial Pillars Row */}
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 mb-10">
             {LIFE_PILLARS.map((pillar) => {
               const Icon = pillar.icon;
@@ -242,19 +216,14 @@ export const AboutPage = ({ onOpenBooking }) => {
               );
             })}
           </div>
-
-          {/* My Belief Dark Editorial Card */}
           <div className="max-w-4xl mx-auto rounded-3xl sm:rounded-[2.5rem] bg-[#191412] border border-[#3A2E28] p-7 sm:p-12 text-center shadow-velvet">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/10 text-[#D4A373] text-[10px] sm:text-xs uppercase tracking-[0.18em] mb-4">
-              <Sparkles className="w-3.5 h-3.5" />
               <span>My Belief</span>
             </div>
-
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif text-white font-light leading-snug mb-5">
               You don&apos;t always need another strategy. Sometimes, you need to work on the{' '}
               <span className="italic text-[#D4A373]">roots</span> that are influencing your results.
             </h2>
-
             <div className="space-y-3 text-sm sm:text-base text-[#D9CEC7] font-light leading-relaxed max-w-2xl mx-auto mb-8">
               <p>
                 At The Innate Bliss, I believe that a truly fulfilling life is built on four important pillars – <strong className="text-white font-medium">Money, Health, Relationships and Career.</strong>
@@ -263,13 +232,12 @@ export const AboutPage = ({ onOpenBooking }) => {
                 My mission is to help people transform from within so they can create greater success, experience deeper fulfilment and enjoy the life they are working so hard to build.
               </p>
             </div>
-
             <button
               type="button"
               onClick={onOpenBooking}
-              className="calmlyss-btn calmlyss-btn-gold py-3.5 px-8 text-xs sm:text-sm w-full sm:w-auto"
+              className="btn btn-gold py-3.5 px-8 text-xs sm:text-sm w-full sm:w-auto"
             >
-              <span>Know More About Payal</span>
+              <span>Book a 1:1 Call With Payal</span>
             </button>
           </div>
         </div>

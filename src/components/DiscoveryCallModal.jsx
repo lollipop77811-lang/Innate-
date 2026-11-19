@@ -1,7 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Sparkles, CheckCircle2, ChevronDown, Check, User, Mail, Phone } from 'lucide-react';
-import { CelestialStar } from './CelestialElements';
+import { X, CheckCircle2, ChevronDown, Check, User, Mail, Phone } from 'lucide-react';
 
 export const DiscoveryCallModal = ({ isOpen, onClose }) => {
   const [step, setStep] = useState(1);
@@ -58,7 +57,6 @@ export const DiscoveryCallModal = ({ isOpen, onClose }) => {
   return (
     <AnimatePresence>
       <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
-        {/* Backdrop */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -66,24 +64,22 @@ export const DiscoveryCallModal = ({ isOpen, onClose }) => {
           onClick={onClose}
           className="fixed inset-0 bg-espresso-950/80 backdrop-blur-md"
         />
-
-        {/* Modal Window */}
         <motion.div
           initial={{ opacity: 0, scale: 0.95, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.95, y: 20 }}
           className="relative z-10 w-full max-w-xl max-h-[90dvh] overflow-y-auto bg-espresso-900 border border-espresso-700 rounded-2xl sm:rounded-3xl p-5 sm:p-8 text-white shadow-velvet my-auto"
         >
-          {/* Header */}
           <div className="flex items-center justify-between pb-4 border-b border-white/10 mb-6">
             <div className="flex items-center gap-2">
-              <CelestialStar className="w-4 h-4 text-earth-sand" />
               <span className="text-xs uppercase tracking-widest text-earth-sand font-semibold">
                 Private Consultation
               </span>
             </div>
             <button
+              type="button"
               onClick={onClose}
+              aria-label="Close"
               className="p-1.5 rounded-full text-espresso-400 hover:text-white hover:bg-white/10 transition-colors"
             >
               <X className="w-5 h-5" />
@@ -100,8 +96,6 @@ export const DiscoveryCallModal = ({ isOpen, onClose }) => {
                   Confidential 1:1 consultation with Payal Gulati to evaluate your core subconscious patterns, money blueprint, and transformation readiness.
                 </p>
               </div>
-
-              {/* Progress Indicator */}
               <div className="flex items-center justify-between mb-6 border-b border-white/5 pb-4">
                 <div className="flex items-center gap-2">
                   <span className={`w-6 h-6 rounded-full text-xs font-mono flex items-center justify-center ${
@@ -162,8 +156,6 @@ export const DiscoveryCallModal = ({ isOpen, onClose }) => {
                       })}
                     </div>
                   </div>
-
-                  {/* Custom Styled In-Bounds Dropdown */}
                   <div ref={roleDropdownRef} className="relative">
                     <label className="block text-xs uppercase tracking-wider text-earth-sand font-semibold mb-2">
                       Which best describes your current profile?
@@ -184,7 +176,6 @@ export const DiscoveryCallModal = ({ isOpen, onClose }) => {
                         }`}
                       />
                     </button>
-
                     <AnimatePresence>
                       {isRoleDropdownOpen && (
                         <motion.ul
@@ -223,14 +214,13 @@ export const DiscoveryCallModal = ({ isOpen, onClose }) => {
                       )}
                     </AnimatePresence>
                   </div>
-
                   <button
                     type="button"
                     onClick={() => {
                       setIsRoleDropdownOpen(false);
                       setStep(2);
                     }}
-                    className="w-full calmlyss-btn calmlyss-btn-primary py-3.5 text-xs mt-4"
+                    className="w-full btn btn-primary py-3.5 text-xs mt-4"
                   >
                     <span>Continue to Contact Info</span>
                   </button>
@@ -253,7 +243,6 @@ export const DiscoveryCallModal = ({ isOpen, onClose }) => {
                       />
                     </div>
                   </div>
-
                   <div>
                     <label className="block text-xs uppercase tracking-wider text-earth-sand font-semibold mb-1">
                       Email Address *
@@ -270,7 +259,6 @@ export const DiscoveryCallModal = ({ isOpen, onClose }) => {
                       />
                     </div>
                   </div>
-
                   <div>
                     <label className="block text-xs uppercase tracking-wider text-earth-sand font-semibold mb-1">
                       WhatsApp / Phone Number *
@@ -287,7 +275,6 @@ export const DiscoveryCallModal = ({ isOpen, onClose }) => {
                       />
                     </div>
                   </div>
-
                   <div>
                     <label className="block text-xs uppercase tracking-wider text-earth-sand font-semibold mb-1">
                       What outcome would create an extraordinary shift for you?
@@ -300,7 +287,6 @@ export const DiscoveryCallModal = ({ isOpen, onClose }) => {
                       className="w-full p-3 rounded-2xl bg-espresso-950/60 border border-white/10 text-xs text-white placeholder-espresso-400 focus:outline-none focus:border-earth-clay resize-none"
                     />
                   </div>
-
                   <div className="flex items-center gap-3 pt-2">
                     <button
                       type="button"
@@ -311,9 +297,8 @@ export const DiscoveryCallModal = ({ isOpen, onClose }) => {
                     </button>
                     <button
                       type="submit"
-                      className="flex-1 calmlyss-btn calmlyss-btn-primary py-3 text-xs shadow-serene"
+                      className="flex-1 btn btn-primary py-3 text-xs shadow-serene"
                     >
-                      <Sparkles className="w-4 h-4" />
                       <span>Confirm Discovery Call Request</span>
                     </button>
                   </div>
@@ -323,7 +308,7 @@ export const DiscoveryCallModal = ({ isOpen, onClose }) => {
           ) : (
             /* Confirmation State */
             <div className="text-center py-8">
-              <div className="w-16 h-16 rounded-full bg-earth-bronze/30 border border-earth-clay text-earth-sand flex items-center justify-center mx-auto mb-4 animate-glow">
+              <div className="w-16 h-16 rounded-full bg-earth-bronze/30 border border-earth-clay text-earth-sand flex items-center justify-center mx-auto mb-4">
                 <CheckCircle2 className="w-8 h-8" />
               </div>
               <h3 className="text-2xl font-serif text-white mb-2">
@@ -339,7 +324,7 @@ export const DiscoveryCallModal = ({ isOpen, onClose }) => {
               </div>
               <button
                 onClick={handleReset}
-                className="calmlyss-btn calmlyss-btn-primary py-3 px-8 text-xs"
+                className="btn btn-primary py-3 px-8 text-xs"
               >
                 Return to Website
               </button>

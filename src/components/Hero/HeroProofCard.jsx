@@ -2,17 +2,11 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Play, Pause, Volume2, VolumeX, Maximize } from 'lucide-react';
 import { BRAND_INFO } from '../../data/siteData';
 
-// Hero VSL video (previously shown in the site-load popup).
-// Local MP4 is used when present in /public/videos; otherwise it falls back to YouTube.
+// Local MP4 is used when present in /public/videos; otherwise the YouTube upload is embedded.
 const LOCAL_VIDEO_SOURCES = ['/videos/VSL%2001_2.mp4', '/videos/vsl-intro.mp4'];
 const VIDEO_POSTER = '/images/hero-payal-thumb.jpg';
 const YOUTUBE_ID = 'lfiGHm5Hgm8';
 const YOUTUBE_EMBED = `https://www.youtube.com/embed/${YOUTUBE_ID}?autoplay=1&mute=1&playsinline=1&loop=1&playlist=${YOUTUBE_ID}&rel=0&modestbranding=1`;
-
-// Tell the ambient background audio to pause while the hero video has sound
-const notifyAmbientAudio = (videoHasSound) => {
-  window.dispatchEvent(new CustomEvent('vsl-state-change', { detail: { isOpen: videoHasSound } }));
-};
 
 const formatTime = (secs) => {
   if (!secs || !isFinite(secs)) return '00:00';
@@ -29,7 +23,7 @@ export const HeroProofCard = () => {
   const [progress, setProgress] = useState(0);
   const [duration, setDuration] = useState(90);
 
-  // Default autoplay (muted — required by browsers for autoplay)
+  // Browsers only allow autoplay when muted
   useEffect(() => {
     const video = videoRef.current;
     if (!video || useYouTube) return;
@@ -40,10 +34,6 @@ export const HeroProofCard = () => {
     }
   }, [useYouTube]);
 
-  // Restore ambient audio if the component unmounts while the video has sound
-  useEffect(() => () => notifyAmbientAudio(false), []);
-
-  // Local file missing / unplayable → fall back to YouTube
   const handleSourceError = (e) => {
     const sources = videoRef.current?.querySelectorAll('source') || [];
     const last = sources[sources.length - 1];
@@ -58,11 +48,9 @@ export const HeroProofCard = () => {
     if (!video) return;
     if (video.paused) {
       video.play().then(() => setIsPlaying(true)).catch(() => {});
-      if (!video.muted) notifyAmbientAudio(true);
     } else {
       video.pause();
       setIsPlaying(false);
-      notifyAmbientAudio(false);
     }
   };
 
@@ -76,7 +64,6 @@ export const HeroProofCard = () => {
     if (!nextMuted && video.paused) {
       video.play().then(() => setIsPlaying(true)).catch(() => {});
     }
-    notifyAmbientAudio(!nextMuted);
   };
 
   const handleFullscreen = (e) => {
@@ -103,7 +90,6 @@ export const HeroProofCard = () => {
 
   return (
     <div className="relative w-full max-w-[560px] lg:max-w-none pt-5 pb-6 sm:pt-6 sm:pb-7 px-1 sm:px-3">
-      {/* Decorative layered backdrop */}
       <div className="absolute inset-x-6 top-0 bottom-2 rounded-[2.2rem] bg-gradient-to-br from-[#E8DCD4] via-[#F2ECE5] to-[#E3D3C5] rotate-[2.5deg] pointer-events-none" />
       <div className="absolute -inset-4 rounded-[2.6rem] bg-gradient-to-tr from-[#C78460]/20 via-[#D4A373]/15 to-transparent blur-2xl pointer-events-none" />
       <svg className="absolute -bottom-3 -left-3 w-20 h-20 text-[#D4A373]/50 pointer-events-none hidden sm:block" viewBox="0 0 80 80" fill="currentColor" aria-hidden="true">
@@ -111,11 +97,7 @@ export const HeroProofCard = () => {
           <circle key={i} cx={8 + (i % 5) * 16} cy={8 + Math.floor(i / 5) * 16} r="1.8" />
         ))}
       </svg>
-
-      {/* Main Card Frame */}
       <article className="relative rounded-[1.8rem] sm:rounded-[2rem] bg-white/90 backdrop-blur-sm border border-[#D9CEC7] p-2 sm:p-2.5 shadow-[0_30px_60px_-20px_rgba(45,32,26,0.35)]">
-
-        {/* Video */}
         <div className="relative w-full aspect-video overflow-hidden rounded-[1.35rem] sm:rounded-[1.5rem] bg-[#2D201A] group/video ring-1 ring-black/5">
           {!useYouTube ? (
             <>
@@ -140,7 +122,6 @@ export const HeroProofCard = () => {
                 ))}
               </video>
 
-              {/* Tap-for-sound pill while muted */}
               {isMuted && (
                 <button
                   type="button"
@@ -152,7 +133,6 @@ export const HeroProofCard = () => {
                 </button>
               )}
 
-              {/* Control Bar */}
               <div className="absolute inset-x-0 bottom-0 z-20 px-3 sm:px-4 pb-2.5 pt-10 bg-gradient-to-t from-black/75 via-black/25 to-transparent flex flex-col gap-2 opacity-100 sm:opacity-0 sm:group-hover/video:opacity-100 transition-opacity duration-300">
                 <div className="w-full h-1 hover:h-1.5 bg-white/25 rounded-full cursor-pointer overflow-hidden transition-all" onClick={handleSeek}>
                   <div className="h-full bg-gradient-to-r from-[#D4A373] to-[#C78460]" style={{ width: `${progress}%` }} />
@@ -186,8 +166,6 @@ export const HeroProofCard = () => {
             />
           )}
         </div>
-
-        {/* Caption strip — ties the video to the hero message */}
         <div className="flex items-center justify-between gap-3 px-3 sm:px-4 pt-3 pb-2 sm:pt-3.5 sm:pb-2.5 text-left">
           <div className="min-w-0 flex items-center gap-3">
             <img
@@ -217,7 +195,6 @@ export const HeroProofCard = () => {
           )}
         </div>
       </article>
-
     </div>
   );
 };

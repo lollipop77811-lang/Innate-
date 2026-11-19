@@ -11,12 +11,10 @@ export const MindsetIntroSection = ({ onOpenBooking }) => {
     >
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-          {/* Left Narrative */}
           <div className="lg:col-span-7">
             <span className="inline-block text-[11px] uppercase tracking-[0.2em] text-[#866452] font-semibold mb-3">
               THE INNATE BLISS · Stop Solving. Start Evolving.
             </span>
-
             <TitleReveal
               as="h2"
               text="You Can't Scale Your Business Beyond the Mindset That Got You Here."
@@ -24,11 +22,9 @@ export const MindsetIntroSection = ({ onOpenBooking }) => {
               highlight="Mindset"
               highlightClass="italic font-display text-[#C78460] font-normal"
             />
-
             <p className="text-base sm:text-lg font-serif text-[#5A483E] leading-snug mb-4">
               Transform your relationship with money, break through your financial ceiling and develop the mindset to support your next level of business growth.
             </p>
-
             <div className="space-y-3 text-sm sm:text-[15px] text-[#6B584E] font-light leading-relaxed max-w-2xl mb-6">
               <p>
                 At The Innate Bliss, we help business owners, founders and entrepreneurs identify and transform the subconscious money patterns, limiting beliefs and emotional blocks that may be influencing their financial decisions and business growth.
@@ -37,12 +33,11 @@ export const MindsetIntroSection = ({ onOpenBooking }) => {
                 Because growing a business isn&apos;t always about doing more. Sometimes, the next breakthrough begins with changing what&apos;s happening within.
               </p>
             </div>
-
             <div className="flex flex-col items-stretch sm:items-start gap-2.5">
               <button
                 type="button"
                 onClick={onOpenBooking}
-                className="calmlyss-btn calmlyss-btn-primary py-3.5 px-6 text-xs sm:text-sm font-medium inline-flex items-center justify-center w-full sm:w-auto"
+                className="btn btn-primary py-3.5 px-6 text-xs sm:text-sm font-medium inline-flex items-center justify-center w-full sm:w-auto"
               >
                 <span>Apply for a Wealth Breakthrough Call</span>
               </button>
@@ -51,8 +46,6 @@ export const MindsetIntroSection = ({ onOpenBooking }) => {
               </p>
             </div>
           </div>
-
-          {/* Right Clean Editorial Image */}
           <motion.div
             initial={{ opacity: 0, scale: 0.98 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -63,7 +56,7 @@ export const MindsetIntroSection = ({ onOpenBooking }) => {
             <div className="rounded-3xl overflow-hidden border border-[#D9CEC7] shadow-serene aspect-[4/3] bg-[#EAE1D6]">
               <img
                 src={platinumLifestyleImg}
-                alt="Calm sunlit workspace representing wealth mindset alignment"
+                alt="Workspace with notebook and tea"
                 className="block w-full h-full object-cover"
               />
             </div>

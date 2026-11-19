@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Bot, Phone, Mail, X, Send, Sparkles } from 'lucide-react';
+import { MessageCircle, Phone, Mail, X, Send } from 'lucide-react';
 import { BRAND_INFO } from '../data/siteData';
 
 const WhatsAppIcon = ({ className = 'w-5 h-5' }) => (
@@ -17,7 +17,7 @@ const QUICK_PROMPTS = [
   'Book a Call',
 ];
 
-const getBotReply = (rawText) => {
+const getReply = (rawText) => {
   const text = rawText.toLowerCase();
 
   if (text.includes('quantum') || text.includes('matrix') || text.includes('9 week') || text.includes('program')) {
@@ -43,7 +43,7 @@ const getBotReply = (rawText) => {
 
   if (text.includes('result') || text.includes('client') || text.includes('proof') || text.includes('testimonial')) {
     return {
-      text: 'Over 200 business owners have worked with The Innate Bliss — including Aarin (50+), who raised ₹25 Lakh in first-round funding within 2 weeks, and Neelakantappa S (70+), whose monthly leads grew from 20–30 to 120–140.',
+      text: 'Client results include Aarin (50+), who raised ₹25 Lakh in first-round funding within 2 weeks, and Neelakantappa S (70+), whose monthly leads grew from 20–30 to 120–140.',
       showBookCta: true,
     };
   }
@@ -56,7 +56,7 @@ const getBotReply = (rawText) => {
   }
 
   return {
-    text: 'Welcome to The Innate Bliss! I can help you with the 1:1 Money Unblock Call, Quantum Wealth Matrix Method (9-Week Program), Platinum Lifetime Membership, or Payal Gulati’s approach. What would you like to explore?',
+    text: 'Here are the topics we can help with: the 1:1 Money Unblock Call, the Quantum Wealth Matrix Method (9-week program), Platinum Lifetime Membership, or Payal Gulati’s approach. For anything else, message us on WhatsApp or email.',
     showBookCta: true,
   };
 };
@@ -68,7 +68,7 @@ export const FloatingActionHub = ({ onOpenBooking }) => {
     {
       id: 1,
       sender: 'bot',
-      text: 'Namaste! I’m The Innate Bliss AI Guide. Ask me about the 1:1 Money Unblock Call, Quantum Wealth Matrix Method, or Platinum Lifetime Membership.',
+      text: 'Namaste! Pick a topic below or type a question about the 1:1 Money Unblock Call, the Quantum Wealth Matrix Method or Platinum Lifetime Membership.',
       showBookCta: false,
     },
   ]);
@@ -85,7 +85,7 @@ export const FloatingActionHub = ({ onOpenBooking }) => {
     if (!trimmed) return;
 
     const userMsg = { id: Date.now(), sender: 'user', text: trimmed };
-    const reply = getBotReply(trimmed);
+    const reply = getReply(trimmed);
     const botMsg = {
       id: Date.now() + 1,
       sender: 'bot',
@@ -108,7 +108,6 @@ export const FloatingActionHub = ({ onOpenBooking }) => {
 
   return (
     <>
-      {/* AI Chatbot Popup Window */}
       <AnimatePresence>
         {isChatOpen && (
           <motion.div
@@ -118,36 +117,31 @@ export const FloatingActionHub = ({ onOpenBooking }) => {
             transition={{ duration: 0.24, ease: [0.16, 1, 0.3, 1] }}
             className="fixed bottom-[82px] right-4 md:bottom-24 md:right-6 z-50 w-[calc(100vw-2rem)] max-w-[370px] max-h-[70dvh] rounded-3xl bg-[#F9F6F3] border border-[#D9CEC7] shadow-2xl overflow-hidden flex flex-col"
             role="dialog"
-            aria-label="The Innate Bliss AI Assistant"
+            aria-label="Quick answers"
           >
-            {/* Header */}
             <div className="px-4 py-3.5 bg-[#191412] text-white flex items-center justify-between gap-3 border-b border-white/10">
               <div className="flex items-center gap-2.5 min-w-0">
                 <div className="w-9 h-9 rounded-full bg-gradient-to-br from-[#D4A373] to-[#866452] flex items-center justify-center text-[#191412] shrink-0 shadow-sm">
-                  <Sparkles className="w-4 h-4" />
+                  <MessageCircle className="w-4 h-4" />
                 </div>
                 <div className="min-w-0">
                   <div className="text-sm font-serif font-medium leading-tight truncate">
-                    Innate Bliss AI Guide
+                    Quick Answers
                   </div>
-                  <div className="flex items-center gap-1.5 text-[10px] text-[#D4A373]">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                    <span>Online · Instant Guidance</span>
+                  <div className="text-[10px] text-[#D4A373]">
+                    The Innate Bliss
                   </div>
                 </div>
               </div>
-
               <button
                 type="button"
                 onClick={() => setIsChatOpen(false)}
-                aria-label="Close AI chat"
+                aria-label="Close quick answers"
                 className="p-1.5 rounded-full text-[#C5B7AE] hover:text-white hover:bg-white/10 transition-colors cursor-pointer"
               >
                 <X className="w-4 h-4" />
               </button>
             </div>
-
-            {/* Messages */}
             <div className="flex-1 overflow-y-auto p-4 space-y-3 bg-[#F9F6F3]">
               {messages.map((msg) => (
                 <div
@@ -170,7 +164,7 @@ export const FloatingActionHub = ({ onOpenBooking }) => {
                         setIsChatOpen(false);
                         if (onOpenBooking) onOpenBooking();
                       }}
-                      className="mt-2 calmlyss-btn calmlyss-btn-primary !py-2 !px-4 !text-[10.5px]"
+                      className="mt-2 btn btn-primary !py-2 !px-4 !text-[10.5px]"
                     >
                       Book a Wealth Breakthrough Call
                     </button>
@@ -179,8 +173,6 @@ export const FloatingActionHub = ({ onOpenBooking }) => {
               ))}
               <div ref={chatEndRef} />
             </div>
-
-            {/* Quick Prompt Chips */}
             <div className="px-3.5 py-2 bg-[#F2ECE5] border-t border-[#D9CEC7]/70 flex items-center gap-1.5 overflow-x-auto">
               {QUICK_PROMPTS.map((q) => (
                 <button
@@ -193,8 +185,6 @@ export const FloatingActionHub = ({ onOpenBooking }) => {
                 </button>
               ))}
             </div>
-
-            {/* Input Form */}
             <form
               onSubmit={handleSubmit}
               className="p-3 bg-white border-t border-[#D9CEC7] flex items-center gap-2"
@@ -203,7 +193,7 @@ export const FloatingActionHub = ({ onOpenBooking }) => {
                 type="text"
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
-                placeholder="Ask about programs, calls, results..."
+                placeholder="Ask about programs, calls, results"
                 className="flex-1 min-w-0 px-3.5 py-2 rounded-full bg-[#F9F6F3] border border-[#D9CEC7] focus:border-[#866452] focus:outline-none text-xs text-[#2D201A] placeholder-[#8A766C]"
               />
               <button
@@ -217,8 +207,6 @@ export const FloatingActionHub = ({ onOpenBooking }) => {
           </motion.div>
         )}
       </AnimatePresence>
-
-      {/* DESKTOP VIEW: Left Side = WhatsApp | Right Side = AI Chatbot */}
       <a
         href={whatsappHref}
         target="_blank"
@@ -232,29 +220,25 @@ export const FloatingActionHub = ({ onOpenBooking }) => {
           WhatsApp Us
         </span>
       </a>
-
       <button
         type="button"
         onClick={() => setIsChatOpen((prev) => !prev)}
-        aria-label={isChatOpen ? 'Close AI Chatbot' : 'Open AI Chatbot'}
-        title="AI Assistant"
+        aria-label={isChatOpen ? 'Close quick answers' : 'Open quick answers'}
+        title="Quick answers"
         className="hidden md:flex group fixed bottom-6 right-6 z-40 w-[52px] h-[52px] rounded-full bg-gradient-to-b from-[#9C7863] via-[#866452] to-[#6E5040] text-white border border-white/30 shadow-[0_10px_26px_rgba(134,100,82,0.5)] items-center justify-center transition-transform hover:scale-105 active:scale-95 cursor-pointer"
       >
-        {isChatOpen ? <X className="w-5 h-5" /> : <Bot className="w-6 h-6" />}
+        {isChatOpen ? <X className="w-5 h-5" /> : <MessageCircle className="w-6 h-6" />}
         {!isChatOpen && (
           <span className="absolute -top-0.5 -right-0.5 w-3 h-3 rounded-full bg-[#D4A373] border-2 border-[#F9F6F3]" />
         )}
         <span className="pointer-events-none absolute right-full mr-3 px-3 py-1.5 rounded-full bg-[#191412] text-white text-[11px] font-medium whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity shadow-md">
-          AI Assistant
+          Quick Answers
         </span>
       </button>
-
-      {/* MOBILE VIEW: Sleek Floating Horizontal Bottom Dock (Call, Email, WhatsApp, AI Chat) */}
       <nav
         aria-label="Quick contact actions"
         className="md:hidden fixed bottom-3 inset-x-4 z-40 max-w-md mx-auto rounded-full bg-white/95 backdrop-blur-xl border border-[#D9CEC7] shadow-[0_10px_30px_rgba(45,32,26,0.18)] px-2 py-1.5 grid grid-cols-4 gap-1"
       >
-        {/* Call */}
         <a
           href={phoneHref}
           aria-label="Call The Innate Bliss"
@@ -265,8 +249,6 @@ export const FloatingActionHub = ({ onOpenBooking }) => {
           </span>
           <span className="text-[10px] font-medium text-[#43342D] leading-none">Call</span>
         </a>
-
-        {/* Email */}
         <a
           href={emailHref}
           aria-label="Email The Innate Bliss"
@@ -277,8 +259,6 @@ export const FloatingActionHub = ({ onOpenBooking }) => {
           </span>
           <span className="text-[10px] font-medium text-[#43342D] leading-none">Email</span>
         </a>
-
-        {/* WhatsApp */}
         <a
           href={whatsappHref}
           target="_blank"
@@ -291,21 +271,19 @@ export const FloatingActionHub = ({ onOpenBooking }) => {
           </span>
           <span className="text-[10px] font-medium text-[#43342D] leading-none">WhatsApp</span>
         </a>
-
-        {/* AI Chatbot */}
         <button
           type="button"
           onClick={() => setIsChatOpen((prev) => !prev)}
-          aria-label={isChatOpen ? 'Close AI Chatbot' : 'Open AI Chatbot'}
+          aria-label={isChatOpen ? 'Close quick answers' : 'Open quick answers'}
           className="flex flex-col items-center justify-center gap-0.5 py-1 rounded-full text-[#2D201A] active:scale-95 transition-transform cursor-pointer"
         >
           <span className="relative w-8 h-8 rounded-full bg-gradient-to-b from-[#9C7863] via-[#866452] to-[#6E5040] text-white flex items-center justify-center shadow-sm">
-            {isChatOpen ? <X className="w-4 h-4" /> : <Bot className="w-4 h-4" />}
+            {isChatOpen ? <X className="w-4 h-4" /> : <MessageCircle className="w-4 h-4" />}
             {!isChatOpen && (
               <span className="absolute -top-0.5 -right-0.5 w-2.5 h-2.5 rounded-full bg-[#D4A373] border border-white" />
             )}
           </span>
-          <span className="text-[10px] font-medium text-[#43342D] leading-none">AI Chat</span>
+          <span className="text-[10px] font-medium text-[#43342D] leading-none">Help</span>
         </button>
       </nav>
     </>

@@ -31,11 +31,7 @@ export const Footer = ({ onOpenPrivacy, onOpenTerms, onOpenBooking }) => {
   return (
     <footer className="bg-[#140F0D] text-[#E5DDD7] border-t border-[#2D201A] pt-8 pb-24 sm:pt-14 md:pb-10 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 relative z-10">
-        
-        {/* Main Footer Columns */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6 md:gap-10 pb-6 md:pb-12 border-b border-white/10">
-          
-          {/* Brand Column */}
           <div className="lg:col-span-5 flex flex-col justify-between">
             <div>
               <Link to="/" className="flex items-center gap-2.5 sm:gap-3 mb-2.5 sm:mb-4 group">
@@ -56,12 +52,9 @@ export const Footer = ({ onOpenPrivacy, onOpenTerms, onOpenBooking }) => {
                   </span>
                 </div>
               </Link>
-
               <p className="text-[11px] sm:text-sm text-[#D9CEC7] font-medium mb-3.5 sm:mb-5">
                 Wealth Mindset Transformation | Holistic Life Transformation
               </p>
-
-              {/* Social Channels */}
               <div className="flex flex-wrap items-center gap-2 sm:gap-3">
                 <a
                   href={BRAND_INFO.socialLinks.instagram}
@@ -96,8 +89,6 @@ export const Footer = ({ onOpenPrivacy, onOpenTerms, onOpenBooking }) => {
               </div>
             </div>
           </div>
-
-          {/* Navigation Links Column (2-Column Compact Grid on Mobile) */}
           <div className="lg:col-span-3">
             <h4 className="text-[11px] sm:text-xs font-semibold uppercase tracking-widest text-[#C78460] mb-2.5 sm:mb-4">
               Quick Links
@@ -116,31 +107,25 @@ export const Footer = ({ onOpenPrivacy, onOpenTerms, onOpenBooking }) => {
                 <Link to="/about" className="hover:text-white transition-colors">About Payal</Link>
               </li>
               <li>
-                <Link to="/#hero" className="hover:text-white transition-colors">Client Results</Link>
-              </li>
-              <li>
                 <Link to="/#contact" className="hover:text-white transition-colors">Contact</Link>
               </li>
             </ul>
           </div>
-
-          {/* Contact & Call CTA Column */}
           <div className="lg:col-span-4 flex flex-col justify-between">
             <div>
               <h4 className="text-[11px] sm:text-xs font-semibold uppercase tracking-widest text-[#C78460] mb-2.5 sm:mb-4">
                 Connect With Us
               </h4>
-
               <div className="space-y-1.5 sm:space-y-2.5 text-xs sm:text-sm text-[#C5B7AE] mb-3.5 sm:mb-5">
                 <a
-                  href="mailto:connect@theinnatebliss.com"
+                  href={`mailto:${BRAND_INFO.contact.email}`}
                   className="flex items-center gap-2 hover:text-white transition-colors"
                 >
                   <Mail className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#C78460] shrink-0" />
-                  <span>connect@theinnatebliss.com</span>
+                  <span>{BRAND_INFO.contact.email}</span>
                 </a>
                 <a
-                  href="http://www.theinnatebliss.com/"
+                  href={BRAND_INFO.socialLinks.website}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 hover:text-white transition-colors"
@@ -149,25 +134,20 @@ export const Footer = ({ onOpenPrivacy, onOpenTerms, onOpenBooking }) => {
                   <span>www.theinnatebliss.com</span>
                 </a>
               </div>
-
               <button
                 type="button"
                 onClick={onOpenBooking}
-                className="w-full calmlyss-btn calmlyss-btn-primary py-2.5 sm:py-3 text-[11px] sm:text-xs"
+                className="w-full btn btn-primary py-2.5 sm:py-3 text-[11px] sm:text-xs"
               >
                 <span>Apply for a Wealth Breakthrough Call</span>
               </button>
             </div>
           </div>
-
         </div>
-
-        {/* Bottom Bar: Copyright & Legal */}
         <div className="pt-5 sm:pt-7 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2.5 sm:gap-4 text-[11px] sm:text-xs text-[#8A766C] pr-12 sm:pr-0">
           <div>
-            © The Innate Bliss. All Rights Reserved.
+            © {new Date().getFullYear()} The Innate Bliss. All Rights Reserved.
           </div>
-
           <div className="flex items-center gap-4 sm:gap-6">
             <button
               type="button"
@@ -193,7 +173,6 @@ export const Footer = ({ onOpenPrivacy, onOpenTerms, onOpenBooking }) => {
             </button>
           </div>
         </div>
-
       </div>
     </footer>
   );
