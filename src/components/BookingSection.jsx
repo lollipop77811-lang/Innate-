@@ -1,11 +1,17 @@
 import React from 'react';
 import { TitleReveal, LineReveal } from './TextReveal';
+import { ParallaxImage } from './motion/ParallaxImage';
+import ctaPathImg from '../assets/images/cta-path.jpg';
 
 export const BookingSection = ({ onOpenBookingModal }) => {
   return (
     <section id="contact" className="py-14 sm:py-16 md:py-20 bg-[#F9F6F3] text-[#2D201A] relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 relative z-10">
-        <div className="max-w-4xl mx-auto rounded-3xl sm:rounded-[2.5rem] bg-[#191412] border border-[#3A2E28] p-7 sm:p-12 md:p-14 text-center relative overflow-hidden shadow-velvet">
+        <div className="max-w-5xl mx-auto rounded-3xl sm:rounded-[2.5rem] bg-[#191412] border border-[#3A2E28] p-7 sm:p-12 md:p-16 text-center relative overflow-hidden shadow-velvet">
+          <div aria-hidden="true" className="absolute inset-0">
+            <ParallaxImage src={ctaPathImg} alt="" className="block w-full h-full object-cover opacity-90" strength={8} />
+            <div className="absolute inset-0 bg-gradient-to-b from-[#191412]/45 via-[#191412]/35 to-[#191412]/80" />
+          </div>
           <div className="relative z-10 flex flex-col items-center">
             <div data-reveal className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/10 text-[#D4A373] text-[10px] sm:text-xs uppercase tracking-[0.16em] mb-4 sm:mb-6">
               <span>Stop Solving. Start Evolving.</span>
