@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Play, Pause, Volume2, VolumeX, Maximize, ShieldCheck } from 'lucide-react';
+import { Play, Pause, Volume2, VolumeX, Maximize } from 'lucide-react';
 import { BRAND_INFO } from '../../data/siteData';
 
 // Hero VSL video (previously shown in the site-load popup).
@@ -189,14 +189,21 @@ export const HeroProofCard = () => {
 
         {/* Caption strip — ties the video to the hero message */}
         <div className="flex items-center justify-between gap-3 px-3 sm:px-4 pt-3 pb-2 sm:pt-3.5 sm:pb-2.5 text-left">
-          <div className="min-w-0">
-            <p className="text-[9.5px] sm:text-[10px] tracking-[0.16em] uppercase text-[#866452] font-semibold">
-              Watch Before You Book · {formatTime(duration)}
-            </p>
-            <h3 className="mt-0.5 font-serif text-[17px] sm:text-[20px] text-[#2D201A] font-medium leading-snug">
-              Your Money Blocks Are{' '}
-              <span className="italic text-[#866452]">Running Your Income</span>
-            </h3>
+          <div className="min-w-0 flex items-center gap-3">
+            <img
+              src={BRAND_INFO.coachPayal}
+              alt="Payal Gulati"
+              className="w-11 h-11 sm:w-12 sm:h-12 rounded-full object-cover object-top ring-2 ring-[#F2ECE5] shrink-0"
+              onError={(e) => { e.currentTarget.src = BRAND_INFO.founderPhoto; }}
+            />
+            <div className="min-w-0 leading-tight">
+              <h3 className="font-serif text-[18px] sm:text-[21px] text-[#2D201A] font-semibold leading-snug">
+                Payal Gulati
+              </h3>
+              <p className="mt-0.5 text-[10px] sm:text-[11px] tracking-[0.14em] uppercase text-[#866452] font-semibold">
+                Founder · The Innate Bliss
+              </p>
+            </div>
           </div>
           {!useYouTube && (
             <button
@@ -211,25 +218,6 @@ export const HeroProofCard = () => {
         </div>
       </article>
 
-      {/* Floating founder chip */}
-      <div className="absolute -left-1 sm:-left-3 lg:-left-6 top-0 z-30 flex items-center gap-2.5 pl-1.5 pr-4 py-1.5 rounded-full bg-white border border-[#D9CEC7] shadow-[0_14px_30px_-10px_rgba(45,32,26,0.35)]">
-        <img
-          src={BRAND_INFO.coachPayal}
-          alt="Payal Gulati"
-          className="w-8 h-8 sm:w-9 sm:h-9 rounded-full object-cover object-top ring-2 ring-[#F2ECE5]"
-          onError={(e) => { e.currentTarget.src = BRAND_INFO.founderPhoto; }}
-        />
-        <div className="leading-tight text-left">
-          <p className="text-[12px] sm:text-[13px] font-serif font-semibold text-[#2D201A]">Payal Gulati</p>
-          <p className="text-[9.5px] sm:text-[10px] text-[#8A766C] uppercase tracking-[0.1em]">Founder · The Innate Bliss</p>
-        </div>
-      </div>
-
-      {/* Floating confidentiality chip */}
-      <div className="absolute right-3 sm:right-0 lg:-right-4 bottom-0 z-30 flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#2D201A] text-[#F2ECE5] text-[10.5px] font-medium tracking-wide shadow-lg">
-        <ShieldCheck className="w-3.5 h-3.5 text-[#D4A373]" />
-        <span>1:1 Private Session</span>
-      </div>
     </div>
   );
 };
