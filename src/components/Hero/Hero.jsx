@@ -19,7 +19,7 @@ export const Hero = ({ onOpenBooking }) => {
   return (
     <section
       id="hero"
-      className="relative lg:min-h-[100dvh] flex items-center pt-[84px] pb-12 sm:pt-28 sm:pb-14 lg:pt-24 lg:pb-14 overflow-x-clip bg-[#F9F6F3]"
+      className="relative lg:min-h-[100dvh] flex items-center pt-[76px] pb-12 sm:pt-28 sm:pb-14 lg:pt-24 lg:pb-14 overflow-x-clip bg-[#F9F6F3]"
     >
       <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-40">
         <div className="absolute -top-32 -right-32 w-96 h-96 rounded-full bg-[#D4A373]/20 blur-3xl animate-drift" />
@@ -97,7 +97,7 @@ export const Hero = ({ onOpenBooking }) => {
             initial={{ opacity: 0, y: 40, scale: 0.97, filter: 'blur(8px)' }}
             animate={{ opacity: 1, y: 0, scale: 1, filter: 'blur(0px)' }}
             transition={{ duration: 1.1, delay: 0.35, ease: EASE }}
-            className="lg:col-span-5 relative flex justify-center lg:justify-end"
+            className="order-first lg:order-none lg:col-span-5 relative flex justify-center lg:justify-end"
           >
             <HeroProofCard />
           </motion.div>
