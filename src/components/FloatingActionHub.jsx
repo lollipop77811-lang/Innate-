@@ -27,9 +27,9 @@ const getReply = (rawText) => {
     };
   }
 
-  if (text.includes('platinum') || text.includes('lifetime') || text.includes('health') || text.includes('relationship') || text.includes('career')) {
+  if (text.includes('platinum') || text.includes('lifetime') || text.includes('money pillar') || text.includes('health') || text.includes('relationship') || text.includes('career')) {
     return {
-      text: 'Platinum Lifetime Membership is a holistic lifestyle journey covering all 4 pillars of a fulfilling life: Health & Emotional Well-being, Personal & Professional Relationships, Career, and Money. You can also explore the full Platinum Membership tab in the top menu.',
+      text: 'Platinum Lifetime Membership is a holistic lifestyle journey covering all 4 pillars of a fulfilling life: Money, Health & Emotional Well-being, Personal & Professional Relationships, and Career. You can also explore the full Platinum Membership tab in the top menu.',
       showBookCta: true,
     };
   }

@@ -20,9 +20,32 @@ import ctaPathImg from '../assets/images/cta-path.jpg';
 
 const PILLARS = [
   {
+    id: 'pillar-money',
+    label: 'MONEY',
+    number: '01',
+    title: 'Money',
+    icon: Wallet,
+    img: pillarMoneyImg,
+    alt: 'Money and financial growth',
+    groups: [
+      {
+        items: [
+          { icon: BarChart3, text: 'Is your income stuck at the same level despite your efforts?' },
+          { icon: PiggyBank, text: 'Are you struggling to save money or build financial security?' },
+          { icon: GitBranch, text: 'Do you feel dependent on a single source of income?' },
+          { icon: Handshake, text: 'Are you finding it difficult to close business deals or convert leads into sales?' },
+          { icon: IndianRupee, text: 'Do you struggle to sell confidently, communicate your value or ask for the price you deserve?' },
+          { icon: Hourglass, text: 'Are your business deals getting delayed or stuck?' },
+          { icon: Landmark, text: 'Do debts, loans or financial responsibilities feel overwhelming?' },
+          { icon: TrendingUp, text: 'Do you feel your business or financial growth is not matching your potential?' },
+        ],
+      },
+    ],
+  },
+  {
     id: 'pillar-health',
     label: 'HEALTH',
-    number: '01',
+    number: '02',
     title: 'Health & Emotional Well-being',
     icon: Heart,
     img: pillarHealthImg,
@@ -44,7 +67,7 @@ const PILLARS = [
   {
     id: 'pillar-relationships',
     label: 'RELATIONSHIPS',
-    number: '02',
+    number: '03',
     title: 'Relationships',
     icon: Users,
     img: pillarRelationshipsImg,
@@ -74,7 +97,7 @@ const PILLARS = [
   {
     id: 'pillar-career',
     label: 'CAREER',
-    number: '03',
+    number: '04',
     title: 'Career',
     icon: Briefcase,
     img: pillarCareerImg,
@@ -88,29 +111,6 @@ const PILLARS = [
           { icon: Eye, text: 'Do you feel your skills and potential are not being recognised?' },
           { icon: Megaphone, text: 'Are you struggling with confidence, workplace relationships or communication?' },
           { icon: Compass, text: 'Do you feel unfulfilled or unsure about the next step in your career?' },
-        ],
-      },
-    ],
-  },
-  {
-    id: 'pillar-money',
-    label: 'MONEY',
-    number: '04',
-    title: 'Money',
-    icon: Wallet,
-    img: pillarMoneyImg,
-    alt: 'Money and financial growth',
-    groups: [
-      {
-        items: [
-          { icon: BarChart3, text: 'Is your income stuck at the same level despite your efforts?' },
-          { icon: PiggyBank, text: 'Are you struggling to save money or build financial security?' },
-          { icon: GitBranch, text: 'Do you feel dependent on a single source of income?' },
-          { icon: Handshake, text: 'Are you finding it difficult to close business deals or convert leads into sales?' },
-          { icon: IndianRupee, text: 'Do you struggle to sell confidently, communicate your value or ask for the price you deserve?' },
-          { icon: Hourglass, text: 'Are your business deals getting delayed or stuck?' },
-          { icon: Landmark, text: 'Do debts, loans or financial responsibilities feel overwhelming?' },
-          { icon: TrendingUp, text: 'Do you feel your business or financial growth is not matching your potential?' },
         ],
       },
     ],
